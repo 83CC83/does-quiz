@@ -11,6 +11,8 @@ const IMAGES = {
   cheetah:   "/images/cheetah.png",
   eagle:     "/images/eagle.png",
   dolphin:   "/images/dolphin.png",
+  fox:       "/images/fox.png",
+  stone:     "/images/stone.png",
 };;
 
 const DIMENSIONS = {
@@ -90,15 +92,17 @@ const QUESTIONS = [
 ];
 
 const ANIMALS = {
-  whale:     { key: "whale",     name: "藍鯨",  trait: "深度處理者",   hss: false, dim: "D",   desc: "你在深海獨自思考世界。旁人看起來你很安靜，但你的內心一直在運轉——分析、連結、沉澱。你不需要很多刺激，但你需要足夠的深度。" },
-  hedgehog:  { key: "hedgehog",  name: "刺蝟",  trait: "刺激感知者",   hss: false, dim: "O",   desc: "你的感知天線隨時開著。外在世界的聲音、光線、氣氛，你比任何人都先感受到。你需要找到讓自己充電的空間。" },
-  elephant:  { key: "elephant",  name: "大象",  trait: "情感共鳴者",   hss: false, dim: "E",   desc: "你記得每一種情緒的重量。別人的喜悅和悲傷你都感受得到，有時甚至比對方本人更深刻。這是你的禮物，也是你的負擔。" },
-  deer:      { key: "deer",      name: "鹿",    trait: "感官感知者",   hss: false, dim: "S",   desc: "你的感官是精密的儀器。一點異味、一點光線變化、一點溫度的不對，你都能察覺。這讓你對美的事物有極深的感受力。" },
-  bee:       { key: "bee",       name: "蜜蜂",  trait: "全方位感知者", hss: false, dim: "ALL", desc: "你是感知全開的存在。深度思考、容易過載、情感豐富、感官細膩——四個面向你都有。世界對你來說既豐富又疲憊，但你比任何人都活得更完整。" },
-  dolphin:   { key: "dolphin",   name: "海豚",  trait: "探索思考者",   hss: true,  dim: "D",   desc: "你又敏感又充滿活力。你喜歡深度思考，但也需要新的刺激和冒險。你在變化中找到意義，在探索中找到自己。" },
-  butterfly: { key: "butterfly", name: "蝴蝶",  trait: "情感探索者",   hss: true,  dim: "E",   desc: "你帶著開放的心感受世界。你對人的情緒極度敏感，同時又渴望不同的體驗和相遇。每一次新的接觸都讓你的內心世界更豐富。" },
-  cheetah:   { key: "cheetah",   name: "獵豹",  trait: "感官行動者",   hss: true,  dim: "S",   desc: "你的感官和行動力同樣強大。你能察覺到最細微的變化，同時也有強烈的衝動去體驗、去移動、去嘗試。你活在當下，全力以赴。" },
-  eagle:     { key: "eagle",     name: "老鷹",  trait: "全感知探索者", hss: true,  dim: "ALL", desc: "你是感知全開又充滿衝勁的存在。敏銳的感官、豐富的情感、深度的思考，加上對新刺激的渴望——你同時承載著最大的敏感和最強的驅動力。" },
+  whale:     { key: "whale",     name: "藍鯨",  trait: "深度處理者",   desc: "你在深海獨自思考世界。旁人看起來你很安靜，但你的內心一直在運轉——分析、連結、沉澱。你不需要很多刺激，但你需要足夠的深度。" },
+  hedgehog:  { key: "hedgehog",  name: "刺蝟",  trait: "刺激感知者",   desc: "你的感知天線隨時開著。外在世界的聲音、光線、氣氛，你比任何人都先感受到。你需要找到讓自己充電的空間。" },
+  elephant:  { key: "elephant",  name: "大象",  trait: "情感共鳴者",   desc: "你記得每一種情緒的重量。別人的喜悅和悲傷你都感受得到，有時甚至比對方本人更深刻。這是你的禮物，也是你的負擔。" },
+  deer:      { key: "deer",      name: "鹿",    trait: "感官感知者",   desc: "你的感官是精密的儀器。一點異味、一點光線變化、一點溫度的不對，你都能察覺。這讓你對美的事物有極深的感受力。" },
+  bee:       { key: "bee",       name: "蜜蜂",  trait: "全方位感知者", desc: "你是感知全開的存在。深度思考、容易過載、情感豐富、感官細膩——四個面向你都有。世界對你來說既豐富又疲憊，但你比任何人都活得更完整。" },
+  dolphin:   { key: "dolphin",   name: "海豚",  trait: "探索思考者",   desc: "你又敏感又充滿活力。你喜歡深度思考，但也需要新的刺激和冒險。你在變化中找到意義，在探索中找到自己。" },
+  fox:       { key: "fox",       name: "狐狸",  trait: "遊蕩者",       desc: "你同時住著兩種衝動——一個說太吵了我要走，一個說好無聊我要出去。容易被環境耗損，但悶著更難受。你總是在剛好太多和剛好不夠之間來回，找不到完美的位置，但你已經學會在移動中找到平衡。" },
+  butterfly: { key: "butterfly", name: "蝴蝶",  trait: "情感探索者",   desc: "你帶著開放的心感受世界。你對人的情緒極度敏感，同時又渴望不同的體驗和相遇。每一次新的接觸都讓你的內心世界更豐富。" },
+  cheetah:   { key: "cheetah",   name: "獵豹",  trait: "感官行動者",   desc: "你的感官和行動力同樣強大。你能察覺到最細微的變化，同時也有強烈的衝動去體驗、去移動、去嘗試。你活在當下，全力以赴。" },
+  eagle:     { key: "eagle",     name: "老鷹",  trait: "全感知探索者", desc: "你是感知全開又充滿衝勁的存在。敏銳的感官、豐富的情感、深度的思考，加上對新刺激的渴望——你同時承載著最大的敏感和最強的驅動力。" },
+  stone:     { key: "stone",     name: "隱者",  trait: "靜定感知者",   desc: "不是感知不到，是你的系統本來就很穩定。外面的世界吵不吵，跟你關係不大。你有自己安靜的內在節奏，不容易被擾動，這在這個時代是一種難得的能力。" },
 };
 
 const ANIMAL_COLORS = {
@@ -111,6 +115,8 @@ const ANIMAL_COLORS = {
   cheetah:   "#c86020",
   eagle:     "#5060a0",
   dolphin:   "#2090b0",
+  fox:       "#c86a30",
+  stone:     "#7a8a7a",
 };
 
 const DIM_ORDER = ["D", "O", "E", "S", "HSS"];
@@ -124,13 +130,25 @@ function calcScores(answers) {
 function getAnimals(scores) {
   const isHSS = scores.HSS >= 13;
   const does = { D: scores.D, O: scores.O, E: scores.E, S: scores.S };
-  const allHigh = Object.values(does).every(v => v >= 13);
+  const THRESHOLD = 13;
+
+  // All DOES >= 13
+  const allHigh = Object.values(does).every(v => v >= THRESHOLD);
   if (allHigh) return isHSS ? [ANIMALS.eagle] : [ANIMALS.bee];
+
+  // Find dims that are both highest AND >= threshold
   const max = Math.max(...Object.values(does));
-  const topDims = Object.entries(does).filter(([, v]) => v === max).map(([k]) => k);
+  const topDims = Object.entries(does)
+    .filter(([, v]) => v === max && v >= THRESHOLD)
+    .map(([k]) => k);
+
+  // If no dim reaches threshold -> stone (隱者)
+  if (topDims.length === 0) return [ANIMALS.stone];
+
   const map = isHSS
-    ? { D: ANIMALS.dolphin, O: ANIMALS.dolphin, E: ANIMALS.butterfly, S: ANIMALS.cheetah }
-    : { D: ANIMALS.whale, O: ANIMALS.hedgehog, E: ANIMALS.elephant, S: ANIMALS.deer };
+    ? { D: ANIMALS.dolphin, O: ANIMALS.fox, E: ANIMALS.butterfly, S: ANIMALS.cheetah }
+    : { D: ANIMALS.whale,   O: ANIMALS.hedgehog, E: ANIMALS.elephant, S: ANIMALS.deer };
+
   return [...new Map(topDims.map(d => [map[d].name, map[d]])).values()];
 }
 
