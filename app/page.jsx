@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const IMAGES = {
   whale:     "/images/whale.webp",
@@ -167,7 +167,6 @@ export default function DOESQuiz() {
   const [pendingAnswers, setPending] = useState(null);
   const [currentSelection, setCurrentSelection] = useState(null);
 
-  useEffect(() => { setCurrentSelection(null); }, [currentQ]);
 
   const q        = QUESTIONS[currentQ];
   const prevDim  = currentQ > 0 ? QUESTIONS[currentQ - 1].dim : null;
@@ -186,6 +185,7 @@ export default function DOESQuiz() {
 
   const handleNext = () => {
     if (!currentSelection) return;
+    setCurrentSelection(null);
     setAnimOut(true);
     setTimeout(() => { setAnimOut(false); setCurrentQ(c => c + 1); }, 220);
   };
