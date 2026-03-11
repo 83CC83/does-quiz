@@ -1,18 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const IMAGES = {
-  whale:     "/images/whale.png",
-  hedgehog:  "/images/hedgehog.png",
-  elephant:  "/images/elephant.png",
-  deer:      "/images/deer.png",
-  bee:       "/images/bee.png",
-  butterfly: "/images/butterfly.png",
-  cheetah:   "/images/cheetah.png",
-  eagle:     "/images/eagle.png",
-  dolphin:   "/images/dolphin.png",
-  fox:       "/images/fox.png",
-  stone:     "/images/stone.png",
+  whale:     "/images/whale.webp",
+  hedgehog:  "/images/hedgehog.webp",
+  elephant:  "/images/elephant.webp",
+  deer:      "/images/deer.webp",
+  bee:       "/images/bee.webp",
+  butterfly: "/images/butterfly.webp",
+  cheetah:   "/images/cheetah.webp",
+  eagle:     "/images/eagle.webp",
+  dolphin:   "/images/dolphin.webp",
+  fox:       "/images/fox.webp",
+  stone:     "/images/stone.webp",
 };;
 
 const DIMENSIONS = {
@@ -92,17 +92,17 @@ const QUESTIONS = [
 ];
 
 const ANIMALS = {
-  whale:     { key: "whale",     name: "藍鯨",  trait: "深度處理者",   desc: "你在深海獨自思考世界。旁人看起來你很安靜，但你的內心一直在運轉——分析、連結、沉澱。你不需要很多刺激，但你需要足夠的深度。" },
-  hedgehog:  { key: "hedgehog",  name: "刺蝟",  trait: "刺激感知者",   desc: "你的感知天線隨時開著。外在世界的聲音、光線、氣氛，你比任何人都先感受到。你需要找到讓自己充電的空間。" },
-  elephant:  { key: "elephant",  name: "大象",  trait: "情感共鳴者",   desc: "你記得每一種情緒的重量。別人的喜悅和悲傷你都感受得到，有時甚至比對方本人更深刻。這是你的禮物，也是你的負擔。" },
-  deer:      { key: "deer",      name: "鹿",    trait: "感官感知者",   desc: "你的感官是精密的儀器。一點異味、一點光線變化、一點溫度的不對，你都能察覺。這讓你對美的事物有極深的感受力。" },
-  bee:       { key: "bee",       name: "蜜蜂",  trait: "全方位感知者", desc: "你是感知全開的存在。深度思考、容易過載、情感豐富、感官細膩——四個面向你都有。世界對你來說既豐富又疲憊，但你比任何人都活得更完整。" },
-  dolphin:   { key: "dolphin",   name: "海豚",  trait: "探索思考者",   desc: "你又敏感又充滿活力。你喜歡深度思考，但也需要新的刺激和冒險。你在變化中找到意義，在探索中找到自己。" },
+  whale:     { key: "whale",     name: "藍鯨",  trait: "深淵者",   desc: "你在深海獨自思考世界。旁人看起來你很安靜，但你的內心一直在運轉——分析、連結、沉澱。你不需要很多刺激，但你需要足夠的深度。" },
+  hedgehog:  { key: "hedgehog",  name: "刺蝟",  trait: "界線者",   desc: "你的感知天線隨時開著。外在世界的聲音、光線、氣氛，你比任何人都先感受到。你需要找到讓自己充電的空間。" },
+  elephant:  { key: "elephant",  name: "大象",  trait: "記憶者",   desc: "你記得每一種情緒的重量。別人的喜悅和悲傷你都感受得到，有時甚至比對方本人更深刻。這是你的禮物，也是你的負擔。" },
+  deer:      { key: "deer",      name: "鹿",    trait: "感知者",   desc: "你的感官是精密的儀器。一點異味、一點光線變化、一點溫度的不對，你都能察覺。這讓你對美的事物有極深的感受力。" },
+  bee:       { key: "bee",       name: "蜜蜂",  trait: "織網者", desc: "你是感知全開的存在。深度思考、容易過載、情感豐富、感官細膩——四個面向你都有。世界對你來說既豐富又疲憊，但你比任何人都活得更完整。" },
+  dolphin:   { key: "dolphin",   name: "海豚",  trait: "探索者",   desc: "你又敏感又充滿活力。你喜歡深度思考，但也需要新的刺激和冒險。你在變化中找到意義，在探索中找到自己。" },
   fox:       { key: "fox",       name: "狐狸",  trait: "遊蕩者",       desc: "你同時住著兩種衝動——一個說太吵了我要走，一個說好無聊我要出去。容易被環境耗損，但悶著更難受。你總是在剛好太多和剛好不夠之間來回，找不到完美的位置，但你已經學會在移動中找到平衡。" },
-  butterfly: { key: "butterfly", name: "蝴蝶",  trait: "情感探索者",   desc: "你帶著開放的心感受世界。你對人的情緒極度敏感，同時又渴望不同的體驗和相遇。每一次新的接觸都讓你的內心世界更豐富。" },
-  cheetah:   { key: "cheetah",   name: "獵豹",  trait: "感官行動者",   desc: "你的感官和行動力同樣強大。你能察覺到最細微的變化，同時也有強烈的衝動去體驗、去移動、去嘗試。你活在當下，全力以赴。" },
-  eagle:     { key: "eagle",     name: "老鷹",  trait: "全感知探索者", desc: "你是感知全開又充滿衝勁的存在。敏銳的感官、豐富的情感、深度的思考，加上對新刺激的渴望——你同時承載著最大的敏感和最強的驅動力。" },
-  stone:     { key: "stone",     name: "隱者",  trait: "靜定感知者",   desc: "不是感知不到，是你的系統本來就很穩定。外面的世界吵不吵，跟你關係不大。你有自己安靜的內在節奏，不容易被擾動，這在這個時代是一種難得的能力。" },
+  butterfly: { key: "butterfly", name: "蝴蝶",  trait: "共鳴者",   desc: "你帶著開放的心感受世界。你對人的情緒極度敏感，同時又渴望不同的體驗和相遇。每一次新的接觸都讓你的內心世界更豐富。" },
+  cheetah:   { key: "cheetah",   name: "獵豹",  trait: "疾行者",   desc: "你的感官和行動力同樣強大。你能察覺到最細微的變化，同時也有強烈的衝動去體驗、去移動、去嘗試。你活在當下，全力以赴。" },
+  eagle:     { key: "eagle",     name: "老鷹",  trait: "全觀者", desc: "你是感知全開又充滿衝勁的存在。敏銳的感官、豐富的情感、深度的思考，加上對新刺激的渴望——你同時承載著最大的敏感和最強的驅動力。" },
+  stone:     { key: "stone",     name: "隱者",  trait: "靜定者",   desc: "不是感知不到，是你的系統本來就很穩定。外面的世界吵不吵，跟你關係不大。你有自己安靜的內在節奏，不容易被擾動，這在這個時代是一種難得的能力。" },
 };
 
 const ANIMAL_COLORS = {
@@ -165,6 +165,9 @@ export default function DOESQuiz() {
   const [animOut, setAnimOut]       = useState(false);
   const [result, setResult]         = useState(null);
   const [pendingAnswers, setPending] = useState(null);
+  const [currentSelection, setCurrentSelection] = useState(null);
+
+  useEffect(() => { setCurrentSelection(null); }, [currentQ]);
 
   const q        = QUESTIONS[currentQ];
   const prevDim  = currentQ > 0 ? QUESTIONS[currentQ - 1].dim : null;
@@ -175,11 +178,16 @@ export default function DOESQuiz() {
   const primaryColor = result ? ANIMAL_COLORS[result.animals[0].key] : "#8a7a6a";
 
   const handleAnswer = (val) => {
+    setCurrentSelection(val);
     const newAnswers = { ...answers, [q.id]: val };
     setAnswers(newAnswers);
-    if (isLastQ) { setPending(newAnswers); return; }
+    if (isLastQ) { setPending(newAnswers); }
+  };
+
+  const handleNext = () => {
+    if (!currentSelection) return;
     setAnimOut(true);
-    setTimeout(() => { setCurrentQ(c => c + 1); setAnimOut(false); }, 220);
+    setTimeout(() => { setAnimOut(false); setCurrentQ(c => c + 1); }, 220);
   };
 
   const handleShowResult = () => {
@@ -192,10 +200,10 @@ export default function DOESQuiz() {
   const handleBack = () => {
     if (currentQ === 0) { setStep("intro"); return; }
     setAnimOut(true);
-    setTimeout(() => { setCurrentQ(c => c - 1); setAnimOut(false); }, 200);
+    setTimeout(() => { setAnimOut(false); setCurrentQ(c => c - 1); }, 200);
   };
 
-  const reset = () => { setStep("intro"); setAnswers({}); setCurrentQ(0); setResult(null); setPending(null); };
+  const reset = () => { setStep("intro"); setAnswers({}); setCurrentQ(0); setResult(null); setPending(null); setCurrentSelection(null); };
 
   return (
     <div style={{ minHeight: "100vh", background: "#fdf6f8", fontFamily: "'Zen Maru Gothic', 'Noto Sans TC', sans-serif", display: "flex", flexDirection: "column", alignItems: "center", padding: "0 22px" }}>
@@ -280,7 +288,7 @@ export default function DOESQuiz() {
               ))}
             </div>
 
-            <button className="cta-btn" onClick={() => setStep("quiz")} style={{
+            <button className="cta-btn" onClick={() => setTimeout(() => setStep("quiz"), 50)} style={{
               width: "100%", padding: "15px",
               background: "linear-gradient(135deg, #e07888, #f0a0a8)", border: "none", borderRadius: 50,
               color: "#fff5f5", fontSize: 14, fontWeight: 700,
@@ -321,30 +329,44 @@ export default function DOESQuiz() {
 
             <h2 style={{ fontSize: 16, color: "#3d2e3a", lineHeight: 1.85, margin: "0 0 24px", fontWeight: 500, fontFamily: "'Noto Sans TC', sans-serif" }}>{q.scenario}</h2>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
+            <div key={q.id} style={{ display: "flex", flexDirection: "column", gap: 9 }}>
               {q.options.map((opt, i) => (
-                <button key={i} className="opt" onClick={() => handleAnswer(opt.value)} style={{
+                <button key={`${q.id}-${i}`} className="opt" onClick={() => handleAnswer(opt.value)} style={{
                   padding: "13px 18px",
-                  background: answers[q.id] === opt.value ? "#d06878" : "#fff",
-                  border: `1.5px solid ${answers[q.id] === opt.value ? "#d06878" : "#e0d4c0"}`,
+                  background: currentSelection === opt.value ? "#fce8ee" : "#fff",
+                  border: `1.5px solid ${currentSelection === opt.value ? "#d06878" : "#e8d8dc"}`,
                   borderRadius: 12, textAlign: "left", fontSize: 13.5,
-                  color: answers[q.id] === opt.value ? "#fff5f5" : "#7a5a64",
+                  color: currentSelection === opt.value ? "#a03050" : "#7a5a64",
                   lineHeight: 1.7, fontFamily: "'Noto Sans TC', sans-serif", cursor: "pointer",
                 }}>{opt.label}</button>
               ))}
             </div>
 
-            {isLastQ && pendingAnswers && (
-              <div style={{ marginTop: 24, animation: "fadeUp 0.4s ease-out" }}>
-                <div style={{ width: "100%", height: 1, background: "#fad8e0", marginBottom: 22 }} />
-                <button className="cta-btn" onClick={handleShowResult} style={{
-                  width: "100%", padding: "15px",
-                  background: "#d06878", border: "none", borderRadius: 14,
-                  color: "#fff5f5", fontSize: 14, fontWeight: 600,
-                  fontFamily: "'Noto Sans TC', sans-serif", letterSpacing: 2, cursor: "pointer",
-                }}>查看結果 ✦</button>
-              </div>
-            )}
+            <div style={{ marginTop: 20 }}>
+              {!isLastQ && (
+                <button className="cta-btn" onClick={handleNext} disabled={!currentSelection} style={{
+                  width: "100%", padding: "14px",
+                  background: currentSelection ? "#d06878" : "#f0dde0",
+                  border: "none", borderRadius: 50,
+                  color: currentSelection ? "#fff5f5" : "#c8a8b0",
+                  fontSize: 14, fontWeight: 600, letterSpacing: 2,
+                  fontFamily: "'Noto Sans TC', sans-serif",
+                  cursor: currentSelection ? "pointer" : "default",
+                  transition: "all 0.2s ease",
+                }}>下一題 →</button>
+              )}
+              {isLastQ && pendingAnswers && (
+                <div style={{ animation: "fadeUp 0.4s ease-out" }}>
+                  <div style={{ width: "100%", height: 1, background: "#fad8e0", marginBottom: 22 }} />
+                  <button className="cta-btn" onClick={handleShowResult} style={{
+                    width: "100%", padding: "15px",
+                    background: "#d06878", border: "none", borderRadius: 50,
+                    color: "#fff5f5", fontSize: 14, fontWeight: 600,
+                    fontFamily: "'Noto Sans TC', sans-serif", letterSpacing: 2, cursor: "pointer",
+                  }}>查看結果 ✦</button>
+                </div>
+              )}
+            </div>
           </div>
         )}
 
