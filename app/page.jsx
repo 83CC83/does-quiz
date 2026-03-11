@@ -162,7 +162,6 @@ export default function DOESQuiz() {
   const [step, setStep]             = useState("intro");
   const [answers, setAnswers]       = useState({});
   const [currentQ, setCurrentQ]     = useState(0);
-  const [animOut, setAnimOut]       = useState(false);
   const [result, setResult]         = useState(null);
   const [pendingAnswers, setPending] = useState(null);
   const [currentSelection, setCurrentSelection] = useState(null);
@@ -186,8 +185,7 @@ export default function DOESQuiz() {
   const handleNext = () => {
     if (!currentSelection) return;
     setCurrentSelection(null);
-    setAnimOut(true);
-    setTimeout(() => { setAnimOut(false); setCurrentQ(c => c + 1); }, 220);
+    setCurrentQ(c => c + 1);
   };
 
   const handleShowResult = () => {
@@ -199,14 +197,13 @@ export default function DOESQuiz() {
 
   const handleBack = () => {
     if (currentQ === 0) { setStep("intro"); return; }
-    setAnimOut(true);
-    setTimeout(() => { setAnimOut(false); setCurrentQ(c => c - 1); }, 200);
+    setCurrentQ(c => c - 1);
   };
 
   const reset = () => { setStep("intro"); setAnswers({}); setCurrentQ(0); setResult(null); setPending(null); setCurrentSelection(null); };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#fdf6f8", fontFamily: "'Zen Maru Gothic', 'Noto Sans TC', sans-serif", display: "flex", flexDirection: "column", alignItems: "center", padding: "0 22px" }}>
+    <div style={{ minHeight: "100vh", background: "#fdf6f8", fontFamily: "Zen Maru Gothic, Noto Sans TC, sans-serif", display: "flex", flexDirection: "column", alignItems: "center", padding: "0 22px" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&family=Klee+One&display=swap');
         * { box-sizing: border-box; }
@@ -214,6 +211,7 @@ export default function DOESQuiz() {
         @keyframes fadeOut  { from{opacity:1} to{opacity:0;transform:translateY(-10px)} }
         @keyframes floatIn  { from{opacity:0;transform:scale(0.97)} to{opacity:1;transform:scale(1)} }
         @keyframes twinkle  { 0%,100%{opacity:0.4;transform:scale(1)} 50%{opacity:1;transform:scale(1.3)} }
+        @keyframes dimFade  { from{opacity:0;max-height:0;margin-bottom:0} to{opacity:1;max-height:80px;margin-bottom:22px} }
         .opt { transition: all 0.15s ease; cursor: pointer; }
         .opt:hover { transform: translateX(4px); background: #fff0f4 !important; }
         .cta-btn { transition: all 0.18s ease; cursor: pointer; }
@@ -254,7 +252,7 @@ export default function DOESQuiz() {
             {/* decorative top line */}
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
               <div style={{ flex: 1, height: 1, background: "linear-gradient(90deg, transparent, #f0b0c0)" }} />
-              <span style={{ fontSize: 10, letterSpacing: 4, color: "#c898a8", fontFamily: "'Noto Sans TC', sans-serif" }}>DOES</span>
+              <span style={{ fontSize: 10, letterSpacing: 4, color: "#c898a8", fontFamily: "Noto Sans TC, sans-serif" }}>DOES</span>
               <div style={{ flex: 1, height: 1, background: "linear-gradient(90deg, #f0b0c0, transparent)" }} />
             </div>
 
@@ -264,16 +262,16 @@ export default function DOESQuiz() {
                 <span className="star2" style={{ fontSize: 7, color: "#f0a8b8" }}>✦</span>
                 <span className="star3" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
               </div>
-              <h1 style={{ fontFamily: "'Klee One', serif", fontSize: 30, color: "#3d2e3a", lineHeight: 1.3, margin: "0 0 8px", fontWeight: 400 }}>
+              <h1 style={{ fontFamily: "Klee One, serif", fontSize: 30, color: "#3d2e3a", lineHeight: 1.3, margin: "0 0 8px", fontWeight: 400 }}>
                 測出你的感知角色
               </h1>
-              <p style={{ fontSize: 12, color: "#c098a0", fontFamily: "'Noto Sans TC', sans-serif", margin: 0, letterSpacing: 2 }}>DOES 高敏感人格測驗</p>
+              <p style={{ fontSize: 12, color: "#c098a0", fontFamily: "Noto Sans TC, sans-serif", margin: 0, letterSpacing: 2 }}>DOES 高敏感人格測驗</p>
             </div>
 
             {/* sketch card */}
             <div className="sketch-box" style={{ padding: "20px 22px", marginBottom: 24 }}>
-              <p style={{ fontSize: 10, letterSpacing: 3, color: "#c898a8", margin: "0 0 10px", fontFamily: "'Noto Sans TC', sans-serif" }}>什麼是高敏感人格？</p>
-              <p style={{ fontSize: 13.5, color: "#7a5a64", lineHeight: 1.9, margin: 0, fontFamily: "'Noto Sans TC', sans-serif" }}>
+              <p style={{ fontSize: 10, letterSpacing: 3, color: "#c898a8", margin: "0 0 10px", fontFamily: "Noto Sans TC, sans-serif" }}>什麼是高敏感人格？</p>
+              <p style={{ fontSize: 13.5, color: "#7a5a64", lineHeight: 1.9, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>
                 高敏感人格（HSP）不是病，也不是脆弱。大約 15-20% 的人天生對外在刺激和內在情緒有更深的感知能力。心理學家 Elaine Aron 將這個特質歸納為四個面向，縮寫為 <strong style={{color: "#cc6878"}}>DOES</strong>。
               </p>
             </div>
@@ -281,9 +279,9 @@ export default function DOESQuiz() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 32 }}>
               {[["D","深度處理","Depth of Processing"],["O","過度刺激","Overstimulation"],["E","情緒同理","Emotional Reactivity"],["S","感官敏感","Sensory Sensitivity"]].map(([k,zh,en]) => (
                 <div key={k} className="sketch-box" style={{ padding: "14px 16px" }}>
-                  <p style={{ fontSize: 22, fontFamily: "'Klee One', serif", color: "#cc6878", margin: "0 0 4px", letterSpacing: 1 }}>{k}</p>
-                  <p style={{ fontSize: 12, color: "#6a4a55", margin: 0, fontFamily: "'Noto Sans TC', sans-serif" }}>{zh}</p>
-                  <p style={{ fontSize: 10, color: "#c898a8", margin: "3px 0 0", fontFamily: "'Noto Sans TC', sans-serif" }}>{en}</p>
+                  <p style={{ fontSize: 22, fontFamily: "Klee One, serif", color: "#cc6878", margin: "0 0 4px", letterSpacing: 1 }}>{k}</p>
+                  <p style={{ fontSize: 12, color: "#6a4a55", margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>{zh}</p>
+                  <p style={{ fontSize: 10, color: "#c898a8", margin: "3px 0 0", fontFamily: "Noto Sans TC, sans-serif" }}>{en}</p>
                 </div>
               ))}
             </div>
@@ -292,28 +290,28 @@ export default function DOESQuiz() {
               width: "100%", padding: "15px",
               background: "linear-gradient(135deg, #e07888, #f0a0a8)", border: "none", borderRadius: 50,
               color: "#fff5f5", fontSize: 14, fontWeight: 700,
-              fontFamily: "'Zen Maru Gothic', sans-serif", letterSpacing: 3,
+              fontFamily: "Zen Maru Gothic, sans-serif", letterSpacing: 3,
               cursor: "pointer", boxShadow: "0 4px 16px rgba(90,74,56,0.25)",
             }}>
               開始測驗 ✦
             </button>
-            <p style={{ textAlign: "center", marginTop: 14, fontSize: 11, color: "#d4a8b4", fontFamily: "'Noto Sans TC', sans-serif" }}>25 題 · 約 5 分鐘 · 不需要登入</p>
+            <p style={{ textAlign: "center", marginTop: 14, fontSize: 11, color: "#d4a8b4", fontFamily: "Noto Sans TC, sans-serif" }}>25 題 · 約 5 分鐘 · 不需要登入</p>
           </div>
         )}
 
         {/* ── QUIZ ── */}
         {step === "quiz" && q && (
-          <div style={{ animation: animOut ? "fadeOut 0.22s ease-out" : "fadeUp 0.3s ease-out", paddingTop: 52 }}>
+          <div style={{ paddingTop: 52 }}>
             <div style={{ marginBottom: 32 }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
                 <button className="back-btn" onClick={handleBack} style={{
                   background: "transparent", border: "1px solid #f0c0cc", borderRadius: 20,
                   padding: "4px 14px", fontSize: 11, color: "#c098a0",
-                  cursor: "pointer", fontFamily: "'Noto Sans TC', sans-serif", transition: "background 0.15s",
+                  cursor: "pointer", fontFamily: "Noto Sans TC, sans-serif", transition: "background 0.15s",
                 }}>← 返回</button>
                 <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                  <span style={{ fontSize: 10, letterSpacing: 2, color: "#c898a8", fontFamily: "'Noto Sans TC', sans-serif" }}>{DIMENSIONS[q.dim]?.label}</span>
-                  <span style={{ fontSize: 11, color: "#d4a8b4", fontFamily: "'Noto Sans TC', sans-serif" }}>{currentQ + 1} / {QUESTIONS.length}</span>
+                  <span style={{ fontSize: 10, letterSpacing: 2, color: "#c898a8", fontFamily: "Noto Sans TC, sans-serif" }}>{DIMENSIONS[q.dim]?.label}</span>
+                  <span style={{ fontSize: 11, color: "#d4a8b4", fontFamily: "Noto Sans TC, sans-serif" }}>{currentQ + 1} / {QUESTIONS.length}</span>
                 </div>
               </div>
               <div style={{ height: 3, background: "#fce8f0", borderRadius: 2 }}>
@@ -321,13 +319,15 @@ export default function DOESQuiz() {
               </div>
             </div>
 
+            <div key={q.id + "_content"} style={{ animation: "fadeUp 0.3s ease-out", minHeight: 420 }}>
+
             {isNewDim && (
-              <div style={{ background: "#fff0f4", borderRadius: 12, padding: "13px 16px", marginBottom: 22, border: "1px solid #f5ccd8", animation: "fadeUp 0.4s ease-out" }}>
-                <p style={{ fontSize: 11, color: "#c090a0", margin: 0, fontFamily: "'Noto Sans TC', sans-serif", lineHeight: 1.8 }}>{DIMENSIONS[q.dim]?.desc}</p>
+              <div style={{ background: "#fff0f4", borderRadius: 12, padding: "13px 16px", border: "1px solid #f5ccd8", marginBottom: 22 }}>
+                <p style={{ fontSize: 11, color: "#c090a0", margin: 0, fontFamily: "Noto Sans TC, sans-serif", lineHeight: 1.8 }}>{DIMENSIONS[q.dim]?.desc}</p>
               </div>
             )}
 
-            <h2 style={{ fontSize: 16, color: "#3d2e3a", lineHeight: 1.85, margin: "0 0 24px", fontWeight: 500, fontFamily: "'Noto Sans TC', sans-serif" }}>{q.scenario}</h2>
+            <h2 style={{ fontSize: 16, color: "#3d2e3a", lineHeight: 1.85, margin: "0 0 24px", fontWeight: 500, fontFamily: "Noto Sans TC, sans-serif" }}>{q.scenario}</h2>
 
             <div key={q.id} style={{ display: "flex", flexDirection: "column", gap: 9 }}>
               {q.options.map((opt, i) => (
@@ -337,7 +337,7 @@ export default function DOESQuiz() {
                   border: `1.5px solid ${currentSelection === opt.value ? "#d06878" : "#e8d8dc"}`,
                   borderRadius: 12, textAlign: "left", fontSize: 13.5,
                   color: currentSelection === opt.value ? "#a03050" : "#7a5a64",
-                  lineHeight: 1.7, fontFamily: "'Noto Sans TC', sans-serif", cursor: "pointer",
+                  lineHeight: 1.7, fontFamily: "Noto Sans TC, sans-serif", cursor: "pointer",
                 }}>{opt.label}</button>
               ))}
             </div>
@@ -350,7 +350,7 @@ export default function DOESQuiz() {
                   border: "none", borderRadius: 50,
                   color: currentSelection ? "#fff5f5" : "#c8a8b0",
                   fontSize: 14, fontWeight: 600, letterSpacing: 2,
-                  fontFamily: "'Noto Sans TC', sans-serif",
+                  fontFamily: "Noto Sans TC, sans-serif",
                   cursor: currentSelection ? "pointer" : "default",
                   transition: "all 0.2s ease",
                 }}>下一題 →</button>
@@ -362,10 +362,11 @@ export default function DOESQuiz() {
                     width: "100%", padding: "15px",
                     background: "#d06878", border: "none", borderRadius: 50,
                     color: "#fff5f5", fontSize: 14, fontWeight: 600,
-                    fontFamily: "'Noto Sans TC', sans-serif", letterSpacing: 2, cursor: "pointer",
+                    fontFamily: "Noto Sans TC, sans-serif", letterSpacing: 2, cursor: "pointer",
                   }}>查看結果 ✦</button>
                 </div>
               )}
+            </div>
             </div>
           </div>
         )}
@@ -390,7 +391,7 @@ export default function DOESQuiz() {
                     <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "45%", background: "linear-gradient(transparent, #faf6ef)" }} />
                     {/* decorative corner dots */}
                     <div style={{ position: "absolute", top: 14, left: 14, display: "flex", gap: 6, alignItems: "center" }}>
-                    <span style={{ fontSize: 9, color: "rgba(255,255,255,0.55)", letterSpacing: 4, fontFamily: "'Noto Sans TC', sans-serif" }}>✦ DOES ✦</span>
+                    <span style={{ fontSize: 9, color: "rgba(255,255,255,0.55)", letterSpacing: 4, fontFamily: "Noto Sans TC, sans-serif" }}>✦ DOES ✦</span>
                   </div>
                   <div style={{ position: "absolute", top: 14, right: 14 }}>
                     <span style={{ fontSize: 9, color: "rgba(255,255,255,0.4)" }}>✦</span>
@@ -401,10 +402,10 @@ export default function DOESQuiz() {
                   <div style={{ padding: "8px 0 24px", animation: "fadeUp 0.5s ease-out 0.3s both" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
                       <div style={{ width: 28, height: 2, background: color, borderRadius: 1 }} />
-                      <p style={{ fontSize: 10, letterSpacing: 3, color: color, margin: 0, fontFamily: "'Noto Sans TC', sans-serif" }}>{animal.trait}</p>
+                      <p style={{ fontSize: 10, letterSpacing: 3, color: color, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>{animal.trait}</p>
                     </div>
-                    <h1 style={{ fontFamily: "'Klee One', serif", fontSize: 44, color: "#3d2e3a", margin: "0 0 16px", fontWeight: 400, lineHeight: 1 }}>{animal.name}</h1>
-                    <p style={{ fontSize: 14, color: "#7a5a64", lineHeight: 1.95, margin: 0, fontFamily: "'Noto Sans TC', sans-serif" }}>{animal.desc}</p>
+                    <h1 style={{ fontFamily: "Klee One, serif", fontSize: 44, color: "#3d2e3a", margin: "0 0 16px", fontWeight: 400, lineHeight: 1 }}>{animal.name}</h1>
+                    <p style={{ fontSize: 14, color: "#7a5a64", lineHeight: 1.95, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>{animal.desc}</p>
                   </div>
                 </div>
               );
@@ -418,7 +419,7 @@ export default function DOESQuiz() {
             </div>
 
             {/* Dim profile */}
-            <p style={{ fontSize: 10, letterSpacing: 4, color: "#c898a8", margin: "0 0 28px", fontFamily: "'Noto Sans TC', sans-serif" }}>感知輪廓</p>
+            <p style={{ fontSize: 10, letterSpacing: 4, color: "#c898a8", margin: "0 0 28px", fontFamily: "Noto Sans TC, sans-serif" }}>感知輪廓</p>
 
             {DIM_ORDER.map(dim => {
               const score = result.scores[dim];
@@ -428,13 +429,13 @@ export default function DOESQuiz() {
               return (
                 <div key={dim} className="sketch-box" style={{ padding: "18px 20px", marginBottom: 14 }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-                    <span style={{ fontSize: 13, color: "#3d2e3a", fontWeight: 600, fontFamily: "'Noto Sans TC', sans-serif" }}>{DIMENSIONS[dim].label}</span>
-                    <span style={{ fontSize: 11, color: col, fontWeight: 600, fontFamily: "'Noto Sans TC', sans-serif" }}>{scoreLabel(score)}</span>
+                    <span style={{ fontSize: 13, color: "#3d2e3a", fontWeight: 600, fontFamily: "Noto Sans TC, sans-serif" }}>{DIMENSIONS[dim].label}</span>
+                    <span style={{ fontSize: 11, color: col, fontWeight: 600, fontFamily: "Noto Sans TC, sans-serif" }}>{scoreLabel(score)}</span>
                   </div>
                   <div style={{ height: 4, background: "#fce8f0", borderRadius: 2, marginBottom: 12 }}>
                     <div className="bar-fill" style={{ height: "100%", borderRadius: 2, background: col, width: `${pct}%`, opacity: 0.8 }} />
                   </div>
-                  <p style={{ fontSize: 13, color: "#7a5a64", lineHeight: 1.85, margin: 0, fontFamily: "'Noto Sans TC', sans-serif" }}>
+                  <p style={{ fontSize: 13, color: "#7a5a64", lineHeight: 1.85, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>
                     {DIMENSIONS[dim].levels[level]}
                   </p>
                 </div>
@@ -442,7 +443,7 @@ export default function DOESQuiz() {
             })}
 
             {/* disclaimer */}
-            <p style={{ fontSize: 11, color: "#d4a8b4", lineHeight: 1.8, margin: "24px 0 20px", fontFamily: "'Noto Sans TC', sans-serif", textAlign: "center" }}>
+            <p style={{ fontSize: 11, color: "#d4a8b4", lineHeight: 1.8, margin: "24px 0 20px", fontFamily: "Noto Sans TC, sans-serif", textAlign: "center" }}>
               參考 Elaine Aron 的 DOES 高敏感人格量表設計<br/>結果僅供自我認識參考，不構成任何心理診斷
             </p>
 
@@ -450,7 +451,7 @@ export default function DOESQuiz() {
               width: "100%", padding: "14px",
               background: "transparent", border: "1.5px solid #f0bcc8", borderRadius: 50,
               color: "#c098a0", fontSize: 13, cursor: "pointer",
-              fontFamily: "'Zen Maru Gothic', sans-serif", letterSpacing: 2,
+              fontFamily: "Zen Maru Gothic, sans-serif", letterSpacing: 2,
             }}>重新測驗</button>
           </div>
         )}
