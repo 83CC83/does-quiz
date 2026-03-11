@@ -197,7 +197,10 @@ export default function DOESQuiz() {
 
   const handleBack = () => {
     if (currentQ === 0) { setStep("intro"); return; }
-    setCurrentQ(c => c - 1);
+    const prevIdx = currentQ - 1;
+    const prevQid = QUESTIONS[prevIdx]?.id;
+    setCurrentQ(prevIdx);
+    setCurrentSelection(answers[prevQid] ?? null);
   };
 
   const reset = () => { setStep("intro"); setAnswers({}); setCurrentQ(0); setResult(null); setPending(null); setCurrentSelection(null); };
