@@ -71,8 +71,8 @@ const QUESTIONS = [
   { id: "D5", dim: "D", scenario: "你和別人發生了一點小摩擦，對方好像已經沒事了。你？", options: [{ label: "對方沒事你也沒事，過了就過了", value: 1 }, { label: "稍微想了一下，確認沒問題就放下", value: 2 }, { label: "會反覆回想當時的每句話，試著從對方的角度理解，直到在腦子裡把這件事『解釋通』才能放下", value: 3 }, { label: "不只想這次，還會開始想這段關係的整體模式、自己在關係裡習慣扮演什麼角色——一個小摩擦變成很長的自我審視", value: 4 }] },
   { id: "O1", dim: "O", scenario: "你走進一間燈光很亮、音樂很大聲的餐廳，朋友說「好有氣氛喔」。你的感受是？", options: [{ label: "跟朋友一樣覺得很有氣氛，沒特別困擾", value: 1 }, { label: "有注意到吵，但投入聊天之後就忘了", value: 2 }, { label: "整頓飯都有點分心，但還是可以聊天", value: 3 }, { label: "會想辦法換位子或提早離開，待在那裡讓我很不舒服", value: 4 }] },
   { id: "O2", dim: "O", scenario: "你連續工作了幾個小時，中間沒有休息。你通常？", options: [{ label: "狀態還好，繼續做沒問題", value: 1 }, { label: "有點疲憊，但撐一下就過了", value: 2 }, { label: "效率下降，出去走走或喝杯水之後可以繼續", value: 3 }, { label: "就算休息了也很難再進入狀態，只能把剩下的事留到明天", value: 4 }] },
-  { id: "O3", dim: "O", scenario: "一個週末你參加了整天的活動（假設是你不討厭的那種），人很多、行程很滿。結束後你？", options: [{ label: "覺得很充實，精力還很好", value: 1 }, { label: "有點累，睡一覺就恢復了", value: 2 }, { label: "結束當下就很想一個人待著，需要安靜的空間才能放鬆", value: 3 }, { label: "活動進行到一半就已經開始覺得撐不住，需要找藉口提早離開才能恢復", value: 4 }] },
-  { id: "O4", dim: "O", scenario: "你正在專心做一件事，同事突然走過來問你問題。你？", options: [{ label: "自然地切換，回答完繼續做，沒什麼影響", value: 1 }, { label: "有點被打斷的感覺，但很快就接回來了", value: 2 }, { label: "需要幾分鐘才能重新進入狀態，有點煩但還好", value: 3 }, { label: "會對突然被打斷這件事感到明顯的不舒服，不只是思路的問題", value: 4 }] },
+  { id: "O3", dim: "O", scenario: "一個週末你參加了整天的活動（假設是你不討厭的那種），人很多、行程很滿。結束後你？", options: [{ label: "覺得很充實，精力還很好", value: 1 }, { label: "有點累，睡一覺就恢復了", value: 2 }, { label: "撐完了，但當天晚上必須完全獨處才能恢復，否則隔天還是累", value: 3 }, { label: "活動進行到一半就已經開始覺得撐不住，需要找藉口提早離開才能恢復", value: 4 }] },
+  { id: "O4", dim: "O", scenario: "你正在專心做一件事，同事突然走過來問你問題。你？", options: [{ label: "自然地切換，回答完繼續做，沒什麼影響", value: 1 }, { label: "有點被打斷的感覺，但很快就接回來了", value: 2 }, { label: "需要幾分鐘才能重新進入狀態，心裡有點煩", value: 3 }, { label: "不只是思路被打斷，整個情緒都被影響了，需要很久才能恢復", value: 4 }] },
   { id: "O5", dim: "O", scenario: "你同時收到很多訊息、郵件、待辦事項需要處理。你的反應是？", options: [{ label: "整理一下優先順序，逐一處理，不會特別有壓力", value: 1 }, { label: "有點煩，但處理完就好了", value: 2 }, { label: "會先把所有事情列出來整理，不整理清楚就沒辦法開始", value: 3 }, { label: "那些待辦事項會在腦子裡一直轉，即使沒有在處理也無法真正放鬆", value: 4 }] },
   { id: "E1", dim: "E", scenario: "朋友跟你說他最近過得不太好，但沒有說細節。你？", options: [{ label: "說一句「加油」或「會好的」，讓他知道你支持他", value: 1 }, { label: "問他發生什麼事，想了解情況", value: 2 }, { label: "光是聽到他說不太好，自己也開始感覺到一種沉重", value: 3 }, { label: "那天之後還是會惦記著他，忍不住主動傳訊問他還好嗎", value: 4 }] },
   { id: "E2", dim: "E", scenario: "你在看一部電影，裡面有一個角色失去了最重要的人。你通常？", options: [{ label: "覺得劇情很好，但情緒上沒有特別大的波動", value: 1 }, { label: "有點難過，但出了電影院就恢復了", value: 2 }, { label: "那種難過會持續一陣子，需要時間才能從角色的情緒裡抽出來", value: 3 }, { label: "看完之後會反覆想那個角色的處境，甚至替他感到不平或心疼", value: 4 }] },
@@ -386,7 +386,7 @@ export default function DOESQuiz() {
                     position: "relative", marginBottom: 0,
                   }}>
                     <img className="result-img" src={IMAGES[animal.key]} alt={animal.name}
-                      style={{ width: "100%", height: 380, objectFit: "cover", objectPosition: "top center", display: "block" }} />
+                      style={{ width: "100%", height: 380, objectFit: "cover", objectPosition: "top center", display: "block", mixBlendMode: "multiply" }} />
                     {/* gradient fade */}
                     <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "45%", background: "linear-gradient(transparent, #faf6ef)" }} />
                     {/* decorative corner dots */}
