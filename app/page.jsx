@@ -68,7 +68,7 @@ const QUESTIONS = [
   { id: "D2", dim: "D", scenario: "朋友隨口分享了一件事（不管是不是你感興趣的話題），說完就換話題了。但你？", options: [{ label: "跟著換話題，沒特別放心上", value: 1 }, { label: "當下有多想一下，之後就忘了", value: 2 }, { label: "事後還會想起來，試著理解對方為什麼這樣說、當時的心情是什麼", value: 3 }, { label: "那句話變成一個入口，開始想到自己、想到某段關係、想到一些更大的問題，越想越深", value: 4 }] },
   { id: "D3", dim: "D", scenario: "開會時主管提了一個新方向，大家都點頭說好。你？", options: [{ label: "覺得可以就跟著點頭，不會多想", value: 1 }, { label: "有疑問，但告訴自己先觀察看看", value: 2 }, { label: "腦子裡開始拆解邏輯，會在心裡把疑點一條一條整理清楚，不整理完就覺得不踏實", value: 3 }, { label: "回家之後還在想，把整個方向的可能風險在腦子裡跑了一遍，睡前才終於放下", value: 4 }] },
   { id: "D4", dim: "D", scenario: "你看完一部電影，朋友問你覺得怎樣。你通常？", options: [{ label: "說好看或不好看，大概就這樣", value: 1 }, { label: "聊一下劇情和感受，說完就結束了", value: 2 }, { label: "會從導演意圖、角色動機、故事結構去分析，說起來可以講很久", value: 3 }, { label: "某個畫面或一句台詞會一直浮現，觸發很多自己的東西，那種感覺好幾天都在", value: 4 }] },
-  { id: "D5", dim: "D", scenario: "你和別人發生了一點小摩擦，對方好像已經沒事了。你？", options: [{ label: "對方沒事你也沒事，過了就過了", value: 1 }, { label: "稍微想了一下，確認沒問題就放下", value: 2 }, { label: "會反覆回想當時的每句話，試著從對方的角度理解，直到在腦子裡把這件事『解釋通』才能放下", value: 3 }, { label: "不只想這次，還會開始想這段關係的整體模式、自己在關係裡習慣扮演什麼角色，一個小摩擦變成很長的自我審視", value: 4 }] },
+  { id: "D5", dim: "D", scenario: "你和別人發生了一點小摩擦，對方好像已經沒事了。你？", options: [{ label: "對方沒事你也沒事，過了就過了", value: 1 }, { label: "稍微想了一下，確認沒問題就放下", value: 2 }, { label: "會反覆回想當時的每句話，試著從對方的角度理解，直到在腦子裡把這件事「解釋通」才能放下", value: 3 }, { label: "不只想這次，還會開始想這段關係的整體模式、自己在關係裡習慣扮演什麼角色，一個小摩擦變成很長的自我審視", value: 4 }] },
   { id: "O1", dim: "O", scenario: "你走進一間燈光很亮、音樂很大聲的餐廳，朋友說「好有氣氛喔」。你的感受是？", options: [{ label: "跟朋友一樣覺得很有氣氛，沒特別困擾", value: 1 }, { label: "有注意到吵，但投入聊天之後就忘了", value: 2 }, { label: "整頓飯都有點分心，但還是可以聊天", value: 3 }, { label: "會想辦法換位子或提早離開，待在那裡讓我很不舒服", value: 4 }] },
   { id: "O2", dim: "O", scenario: "你連續工作了幾個小時，中間沒有休息。你通常？", options: [{ label: "狀態還好，繼續做沒問題", value: 1 }, { label: "有點疲憊，但撐一下就過了", value: 2 }, { label: "效率下降，出去走走或喝杯水之後可以繼續", value: 3 }, { label: "就算休息了也很難再進入狀態，只能把剩下的事留到明天", value: 4 }] },
   { id: "O3", dim: "O", scenario: "一個週末你參加了整天的活動（假設是你不討厭的那種），人很多、行程很滿。結束後你？", options: [{ label: "覺得很充實，精力還很好", value: 1 }, { label: "有點累，睡一覺就恢復了", value: 2 }, { label: "撐完了，但當天晚上必須完全獨處才能恢復，否則隔天還是累", value: 3 }, { label: "活動進行到一半就已經開始覺得撐不住，需要找藉口提早離開才能恢復", value: 4 }] },
@@ -325,7 +325,7 @@ export default function DOESQuiz() {
             <div key={q.id + "_content"} style={{ animation: "fadeUp 0.3s ease-out", minHeight: 420 }}>
 
             {isNewDim && (
-              <div style={{ background: "#fff0f4", borderRadius: 12, padding: "13px 16px", border: "1px solid #f5ccd8", marginBottom: 22 }}>
+              <div style={{ borderLeft: "2px solid #f0c0cc", paddingLeft: 12, marginBottom: 22 }}>
                 <p style={{ fontSize: 11, color: "#c090a0", margin: 0, fontFamily: "Noto Sans TC, sans-serif", lineHeight: 1.8 }}>{DIMENSIONS[q.dim]?.desc}</p>
               </div>
             )}
