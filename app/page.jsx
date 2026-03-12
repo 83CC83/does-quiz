@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const IMAGES = {
   whale:     "/images/whale.webp",
@@ -204,6 +204,14 @@ export default function DOESQuiz() {
   };
 
   const reset = () => { setStep("intro"); setAnswers({}); setCurrentQ(0); setResult(null); setPending(null); setCurrentSelection(null); };
+
+  // Preload all images on mount
+  useEffect(() => {
+    Object.values(IMAGES).forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   return (
     <div style={{ minHeight: "100vh", background: "#fdf6f8", fontFamily: "Zen Maru Gothic, Noto Sans TC, sans-serif", display: "flex", flexDirection: "column", alignItems: "center", padding: "0" }}>
