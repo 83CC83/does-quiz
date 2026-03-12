@@ -275,7 +275,7 @@ export default function DOESQuiz() {
             <div className="sketch-box" style={{ padding: "20px 22px", marginBottom: 24 }}>
               <p style={{ fontSize: 10, letterSpacing: 3, color: "#c898a8", margin: "0 0 10px", fontFamily: "Noto Sans TC, sans-serif" }}>什麼是高敏感人格？</p>
               <p style={{ fontSize: "clamp(12px, 3.5vw, 13.5px)", color: "#7a5a64", lineHeight: 1.9, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>
-                高敏感人格（HSP）不是病，也不是脆弱。大約 15-20% 的人天生對外在刺激和內在情緒有更深的感知能力。心理學家 Elaine Aron 將這個特質歸納為四個面向，縮寫為 <span style={{whiteSpace: "nowrap"}}><strong style={{color: "#cc6878"}}>DOES</strong></span>。
+                高敏感人格（HSP）不是病，也不是你想太多。大約 15-20% 的人天生對外在刺激和內在情緒感知得更深，心理學家 Elaine Aron 把這個特質整理成四個面向，縮寫為 <span style={{whiteSpace: "nowrap"}}><strong style={{color: "#cc6878"}}>DOES</strong></span>。
               </p>
             </div>
 
@@ -384,7 +384,7 @@ export default function DOESQuiz() {
                 <div key={idx} style={{ marginBottom: 24 }}>
                   {/* Full-width image banner */}
                   <div style={{
-                    width: "calc(100% + 44px)", marginLeft: -22,
+                    width: "calc(100% + 32px)", marginLeft: -16,
                     borderRadius: "0 0 32px 32px", overflow: "hidden",
                     position: "relative", marginBottom: 0,
                   }}>
