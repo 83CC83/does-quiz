@@ -206,16 +206,16 @@ export default function DOESQuiz() {
   const reset = () => { setStep("intro"); setAnswers({}); setCurrentQ(0); setResult(null); setPending(null); setCurrentSelection(null); };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#fdf6f8", fontFamily: "Zen Maru Gothic, Noto Sans TC, sans-serif", display: "flex", flexDirection: "column", alignItems: "center", padding: "0 22px" }}>
+    <div style={{ minHeight: "100vh", background: "#fdf6f8", fontFamily: "Zen Maru Gothic, Noto Sans TC, sans-serif", display: "flex", flexDirection: "column", alignItems: "center", padding: "0" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&family=Klee+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&family=LXGW+WenKai+TC&display=swap&font-display=swap');
         * { box-sizing: border-box; }
         @keyframes fadeUp   { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
         @keyframes fadeOut  { from{opacity:1} to{opacity:0;transform:translateY(-10px)} }
         @keyframes floatIn  { from{opacity:0;transform:scale(0.97)} to{opacity:1;transform:scale(1)} }
         @keyframes twinkle  { 0%,100%{opacity:0.4;transform:scale(1)} 50%{opacity:1;transform:scale(1.3)} }
         @keyframes dimFade  { from{opacity:0;max-height:0;margin-bottom:0} to{opacity:1;max-height:80px;margin-bottom:22px} }
-        .opt { transition: all 0.15s ease; cursor: pointer; }
+        .opt { transition: all 0.15s ease; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
         .opt:hover { transform: translateX(4px); background: #fff0f4 !important; }
         .cta-btn { transition: all 0.18s ease; cursor: pointer; }
         .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.10); }
@@ -245,6 +245,7 @@ export default function DOESQuiz() {
           opacity: 0.55;
         }
         .result-img { animation: floatIn 0.9s ease-out; }
+        h1::first-letter { font-size: inherit !important; }
       `}</style>
 
       <div style={{ width: "100%", maxWidth: 560, paddingBottom: 72, paddingLeft: 16, paddingRight: 16, boxSizing: "border-box" }}>
@@ -265,7 +266,7 @@ export default function DOESQuiz() {
                 <span className="star2" style={{ fontSize: 7, color: "#f0a8b8" }}>✦</span>
                 <span className="star3" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
               </div>
-              <h1 style={{ fontFamily: "Klee One, serif", fontSize: 30, color: "#3d2e3a", lineHeight: 1.3, margin: "0 0 8px", fontWeight: 400 }}>
+              <h1 style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: 30, color: "#3d2e3a", lineHeight: 1.3, margin: "0 0 8px", fontWeight: 400 }}>
                 測出你的感知角色
               </h1>
               <p style={{ fontSize: 12, color: "#c098a0", fontFamily: "Noto Sans TC, sans-serif", margin: 0, letterSpacing: 2 }}>DOES 高敏感人格測驗</p>
@@ -282,7 +283,7 @@ export default function DOESQuiz() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 32 }}>
               {[["D","深度處理","Depth of Processing"],["O","過度刺激","Overstimulation"],["E","情緒同理","Emotional Reactivity"],["S","感官敏感","Sensory Sensitivity"]].map(([k,zh,en]) => (
                 <div key={k} className="sketch-box" style={{ padding: "14px 16px" }}>
-                  <p style={{ fontSize: 22, fontFamily: "Klee One, serif", color: "#cc6878", margin: "0 0 4px", letterSpacing: 1 }}>{k}</p>
+                  <p style={{ fontSize: 22, fontFamily: "LXGW WenKai TC, serif", color: "#cc6878", margin: "0 0 4px", letterSpacing: 1 }}>{k}</p>
                   <p style={{ fontSize: 12, color: "#6a4a55", margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>{zh}</p>
                   <p style={{ fontSize: 10, color: "#c898a8", margin: "3px 0 0", fontFamily: "Noto Sans TC, sans-serif" }}>{en}</p>
                 </div>
@@ -322,7 +323,7 @@ export default function DOESQuiz() {
               </div>
             </div>
 
-            <div key={q.id + "_content"} style={{ animation: "fadeUp 0.3s ease-out", minHeight: 420 }}>
+            <div style={{ minHeight: 420 }}><div key={q.id + "_content"} style={{ animation: "fadeUp 0.3s ease-out" }}>
 
             {isNewDim && (
               <div style={{ borderLeft: "2px solid #f0c0cc", paddingLeft: 12, marginBottom: 22 }}>
@@ -344,6 +345,7 @@ export default function DOESQuiz() {
                 }}>{opt.label}</button>
               ))}
             </div>
+</div>
 
             <div style={{ marginTop: 20 }}>
               {!isLastQ && (
@@ -389,7 +391,7 @@ export default function DOESQuiz() {
                     position: "relative", marginBottom: 0,
                   }}>
                     <img className="result-img" src={IMAGES[animal.key]} alt={animal.name}
-                      style={{ width: "100%", height: 380, objectFit: "cover", objectPosition: "top center", display: "block", mixBlendMode: "multiply" }} />
+                      style={{ width: "100%", height: "auto", maxHeight: 420, objectFit: "cover", objectPosition: "center center", display: "block", mixBlendMode: "multiply" }} />
                     {/* gradient fade */}
                     <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "45%", background: "linear-gradient(transparent, #faf6ef)" }} />
                     {/* decorative corner dots */}
@@ -407,7 +409,7 @@ export default function DOESQuiz() {
                       <div style={{ width: 28, height: 2, background: color, borderRadius: 1 }} />
                       <p style={{ fontSize: 10, letterSpacing: 3, color: color, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>{animal.trait}</p>
                     </div>
-                    <h1 style={{ fontFamily: "Klee One, serif", fontSize: 44, color: "#3d2e3a", margin: "0 0 16px", fontWeight: 400, lineHeight: 1 }}>{animal.name}</h1>
+                    <h1 style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: 0, color: "#3d2e3a", margin: "0 0 16px", fontWeight: 400, lineHeight: 1 }}><span style={{fontSize: 44, fontFamily: "LXGW WenKai TC, serif"}}>{animal.name}</span></h1>
                     <p style={{ fontSize: 14, color: "#7a5a64", lineHeight: 1.95, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>{animal.desc}</p>
                   </div>
                 </div>
