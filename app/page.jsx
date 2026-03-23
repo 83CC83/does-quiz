@@ -216,7 +216,7 @@ export default function DOESQuiz() {
   return (
     <div style={{ minHeight: "100vh", background: "#fdf6f8", fontFamily: "Zen Maru Gothic, Noto Sans TC, sans-serif", display: "flex", flexDirection: "column", alignItems: "center", padding: "0" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&family=LXGW+WenKai+TC&display=swap&font-display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&family=LXGW+WenKai+TC&display=swap');
         * { box-sizing: border-box; }
         @keyframes fadeUp   { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
         @keyframes fadeOut  { from{opacity:1} to{opacity:0;transform:translateY(-10px)} }
@@ -274,17 +274,16 @@ export default function DOESQuiz() {
                 <span className="star2" style={{ fontSize: 7, color: "#f0a8b8" }}>✦</span>
                 <span className="star3" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
               </div>
-              <h1 style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: 30, color: "#3d2e3a", lineHeight: 1.3, margin: "0 0 8px", fontWeight: 400 }}>
-                測出你的感知角色
+              <h1 style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: 30, color: "#3d2e3a", lineHeight: 1.3, margin: 0, fontWeight: 400 }}>
+                測你的高敏感角色
               </h1>
-              <p style={{ fontSize: 12, color: "#c098a0", fontFamily: "Noto Sans TC, sans-serif", margin: 0, letterSpacing: 2 }}>DOES 高敏感人格測驗</p>
             </div>
 
             {/* sketch card */}
             <div className="sketch-box" style={{ padding: "20px 22px", marginBottom: 24 }}>
               <p style={{ fontSize: 10, letterSpacing: 3, color: "#c898a8", margin: "0 0 10px", fontFamily: "Noto Sans TC, sans-serif" }}>什麼是高敏感人格？</p>
               <p style={{ fontSize: "clamp(12px, 3.5vw, 13.5px)", color: "#7a5a64", lineHeight: 1.9, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>
-                高敏感人格（HSP）不是病，也不是你想太多。大約 15-20% 的人天生對外在刺激和內在情緒的感知比別人深，心理學家 Elaine Aron 把這個特質整理成四個面向，縮寫為 <span style={{whiteSpace: "nowrap"}}><strong style={{color: "#cc6878"}}>DOES</strong></span>。
+                高敏感人格（HSP）不是病，也不是你想太多。大約 15-20% 的人天生對外在刺激和內在情緒感知得更深，心理學家 Elaine Aron 把這個特質整理成四個面向，縮寫為 <span style={{whiteSpace: "nowrap"}}><strong style={{color: "#cc6878"}}>DOES</strong></span>。
               </p>
             </div>
 
@@ -416,6 +415,7 @@ export default function DOESQuiz() {
                     <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
                       <div style={{ width: 28, height: 2, background: color, borderRadius: 1 }} />
                       <p style={{ fontSize: 10, letterSpacing: 3, color: color, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>{animal.trait}</p>
+                      <span style={{ fontSize: 9, color: "#fff", background: animal.key === "stone" ? "#b0a0a8" : color, borderRadius: 20, padding: "2px 8px", letterSpacing: 1, fontFamily: "Noto Sans TC, sans-serif", opacity: 0.85 }}>{animal.key === "stone" ? "非高敏感" : "高敏感"}</span>
                     </div>
                     <h1 style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: 0, color: "#3d2e3a", margin: "0 0 16px", fontWeight: 400, lineHeight: 1 }}><span style={{fontSize: 44, fontFamily: "LXGW WenKai TC, serif"}}>{animal.name}</span></h1>
                     <p style={{ fontSize: 14, color: "#7a5a64", lineHeight: 1.95, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>{animal.desc}</p>
