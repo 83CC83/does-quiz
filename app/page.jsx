@@ -131,18 +131,25 @@ function getAnimals(scores) {
   const isHSS = scores.HSS >= 13;
   const does = { D: scores.D, O: scores.O, E: scores.E, S: scores.S };
   const THRESHOLD = 13;
+  const GAP = 3; // must lead 2nd place by at least this much to be "dominant"
 
   // All DOES >= 13
   const allHigh = Object.values(does).every(v => v >= THRESHOLD);
   if (allHigh) return isHSS ? [ANIMALS.eagle] : [ANIMALS.bee];
 
-  // Find dims that are both highest AND >= threshold
   const max = Math.max(...Object.values(does));
-  const topDims = Object.entries(does)
-    .filter(([, v]) => v === max && v >= THRESHOLD)
-    .map(([k]) => k);
 
   // If no dim reaches threshold -> stone (隱者)
+  if (max < THRESHOLD) return [ANIMALS.stone];
+
+  const sorted = Object.values(does).sort((a, b) => b - a);
+  const secondMax = sorted[1];
+
+  // Only "dominant" if clearly ahead by GAP points
+  const topDims = (max - secondMax >= GAP)
+    ? Object.entries(does).filter(([, v]) => v === max).map(([k]) => k)
+    : Object.entries(does).filter(([, v]) => v >= THRESHOLD && v >= max - 1).map(([k]) => k);
+
   if (topDims.length === 0) return [ANIMALS.stone];
 
   const map = isHSS
