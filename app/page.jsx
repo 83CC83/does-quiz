@@ -269,16 +269,16 @@ export default function DOESQuiz() {
         {step === "intro" && (
           <div style={{ animation: "fadeUp 0.6s ease-out", paddingTop: 0 }}>
             {/* cover image */}
-            <div style={{ width: "calc(100% + 32px)", marginLeft: -16, marginBottom: 28, borderRadius: "0 0 24px 24px", overflow: "hidden", position: "relative" }}>
-              <img src="/images/cover.webp" alt="cover" style={{ width: "100%", height: 220, objectFit: "cover", objectPosition: "center", display: "block" }} />
-              <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "50%", background: "linear-gradient(transparent, #fdf6f8)" }} />
-              <div style={{ position: "absolute", bottom: 20, left: 0, right: 0, textAlign: "center" }}>
-                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, marginBottom: 6 }}>
+            <div style={{ width: "calc(100% + 32px)", marginLeft: -16, marginBottom: 28, overflow: "hidden", position: "relative" }}>
+              <img src="/images/cover.webp" alt="cover" style={{ width: "100%", height: 340, objectFit: "cover", objectPosition: "center top", display: "block" }} />
+              <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "70%", background: "linear-gradient(transparent, #fdf6f8)" }} />
+              <div style={{ position: "absolute", bottom: 32, left: 0, right: 0, textAlign: "center" }}>
+                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, marginBottom: 8 }}>
                   <span className="star1" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
                   <span className="star2" style={{ fontSize: 7, color: "#f0a8b8" }}>✦</span>
                   <span className="star3" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
                 </div>
-                <h1 style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: 28, color: "#3d2e3a", lineHeight: 1.3, margin: 0, fontWeight: 400 }}>
+                <h1 style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: 30, color: "#3d2e3a", lineHeight: 1.3, margin: 0, fontWeight: 400 }}>
                   測你的高敏感角色
                 </h1>
               </div>
