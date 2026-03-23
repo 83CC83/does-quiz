@@ -269,10 +269,10 @@ export default function DOESQuiz() {
         {step === "intro" && (
           <div style={{ animation: "fadeUp 0.6s ease-out", paddingTop: 0 }}>
             {/* cover image with all content overlaid */}
-            <div style={{ width: "calc(100% + 32px)", marginLeft: -16, marginBottom: 28, overflow: "hidden", position: "relative",
+            <div style={{ width: "calc(100% + 32px)", marginLeft: -16, marginBottom: 28, overflow: "hidden", position: "relative", borderRadius: 24,
               backgroundImage: "url('/images/cover.webp')", backgroundSize: "cover", backgroundPosition: "center top" }}>
-              <div style={{ position: "absolute", inset: 0, background: "rgba(253,246,248,0.72)" }} />
-              <div style={{ position: "relative", display: "flex", flexDirection: "column", padding: "40px 24px 32px" }}>
+              <div style={{ position: "absolute", inset: 0, background: "rgba(253,246,248,0.82)" }} />
+              <div style={{ position: "relative", display: "flex", flexDirection: "column", padding: "28px 20px 28px" }}>
                 <div style={{ textAlign: "center", marginBottom: 24 }}>
                   <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, marginBottom: 8 }}>
                     <span className="star1" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
@@ -285,8 +285,8 @@ export default function DOESQuiz() {
                 </div>
 
                 {/* sketch card */}
-                <div className="sketch-box" style={{ padding: "18px 20px", marginBottom: 16, background: "rgba(255,250,252,0.85)" }}>
-                  <p style={{ fontSize: 10, letterSpacing: 3, color: "#c898a8", margin: "0 0 10px", fontFamily: "Noto Sans TC, sans-serif" }}>什麼是高敏感人格？</p>
+                <div className="sketch-box" style={{ padding: "18px 20px", marginBottom: 16, background: "rgba(255,250,252,0.93)" }}>
+                  <p style={{ fontSize: 10, letterSpacing: 1, color: "#c898a8", margin: "0 0 10px", fontFamily: "Noto Sans TC, sans-serif" }}>什麼是高敏感人格？</p>
                   <p style={{ fontSize: "clamp(12px, 3.5vw, 13.5px)", color: "#7a5a64", lineHeight: 1.9, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>
                     高敏感人格（HSP）不是病，也不是你想太多。大約 15-20% 的人天生對外在刺激和內在情緒感知得更深，心理學家 Elaine Aron 把這個特質整理成四個面向，縮寫為 <span style={{whiteSpace: "nowrap"}}><strong style={{color: "#cc6878"}}>DOES</strong></span>。
                   </p>
@@ -294,7 +294,7 @@ export default function DOESQuiz() {
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
                   {[["D","深度處理","Depth of Processing"],["O","過度刺激","Overstimulation"],["E","情緒同理","Emotional Reactivity"],["S","感官敏感","Sensory Sensitivity"]].map(([k,zh,en]) => (
-                    <div key={k} className="sketch-box" style={{ padding: "12px 14px", background: "rgba(255,250,252,0.85)" }}>
+                    <div key={k} className="sketch-box" style={{ padding: "12px 14px", background: "rgba(255,250,252,0.93)" }}>
                       <p style={{ fontSize: 22, fontFamily: "LXGW WenKai TC, serif", color: "#cc6878", margin: "0 0 4px", letterSpacing: 1 }}>{k}</p>
                       <p style={{ fontSize: 12, color: "#6a4a55", margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>{zh}</p>
                       <p style={{ fontSize: 10, color: "#c898a8", margin: "3px 0 0", fontFamily: "Noto Sans TC, sans-serif" }}>{en}</p>
