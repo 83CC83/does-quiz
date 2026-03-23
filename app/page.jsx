@@ -269,10 +269,10 @@ export default function DOESQuiz() {
         {step === "intro" && (
           <div style={{ animation: "fadeUp 0.6s ease-out", paddingTop: 16 }}>
             {/* cover image with all content overlaid */}
-            <div style={{ width: "100%", marginBottom: 28, position: "relative", borderRadius: 24, overflow: "hidden",
-              backgroundImage: "url('/images/cover.webp')", backgroundSize: "cover", backgroundPosition: "center top" }}>
-              <div style={{ position: "absolute", inset: 0, background: "rgba(253,246,248,0.82)", borderRadius: 24 }} />
-              <div style={{ position: "relative", display: "flex", flexDirection: "column", padding: "28px 20px 28px" }}>
+            <div style={{ width: "100%", marginBottom: 0, position: "relative", borderRadius: 24, overflow: "hidden" }}>
+              <img src="/images/cover.webp" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
+              <div style={{ position: "absolute", inset: 0, background: "rgba(253,246,248,0.82)" }} />
+              <div style={{ position: "relative", display: "flex", flexDirection: "column", padding: "28px 20px" }}>
                 <div style={{ textAlign: "center", marginBottom: 24 }}>
                   <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, marginBottom: 8 }}>
                     <span className="star1" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
@@ -301,19 +301,18 @@ export default function DOESQuiz() {
                     </div>
                   ))}
                 </div>
+                <button className="cta-btn" onClick={() => setTimeout(() => setStep("quiz"), 50)} style={{
+                  width: "100%", padding: "15px", marginTop: 16,
+                  background: "linear-gradient(135deg, #e07888, #f0a0a8)", border: "none", borderRadius: 50,
+                  color: "#fff5f5", fontSize: 14, fontWeight: 700,
+                  fontFamily: "Zen Maru Gothic, sans-serif", letterSpacing: 3,
+                  cursor: "pointer", boxShadow: "0 4px 16px rgba(200,100,120,0.3)",
+                }}>
+                  開始測驗 ✦
+                </button>
+                <p style={{ textAlign: "center", marginTop: 10, fontSize: 11, color: "#c898a8", fontFamily: "Noto Sans TC, sans-serif" }}>25 題 · 約 5 分鐘 · 不需要登入</p>
               </div>
             </div>
-
-            <button className="cta-btn" onClick={() => setTimeout(() => setStep("quiz"), 50)} style={{
-              width: "100%", padding: "15px",
-              background: "linear-gradient(135deg, #e07888, #f0a0a8)", border: "none", borderRadius: 50,
-              color: "#fff5f5", fontSize: 14, fontWeight: 700,
-              fontFamily: "Zen Maru Gothic, sans-serif", letterSpacing: 3,
-              cursor: "pointer", boxShadow: "0 4px 16px rgba(90,74,56,0.25)",
-            }}>
-              開始測驗 ✦
-            </button>
-            <p style={{ textAlign: "center", marginTop: 14, fontSize: 11, color: "#d4a8b4", fontFamily: "Noto Sans TC, sans-serif" }}>25 題 · 約 5 分鐘 · 不需要登入</p>
           </div>
         )}
 
