@@ -269,11 +269,9 @@ export default function DOESQuiz() {
         {step === "intro" && (
           <div style={{ animation: "fadeUp 0.6s ease-out", paddingTop: 16 }}>
             {/* cover image with all content overlaid */}
-            <div style={{ width: "100%", marginBottom: 28, position: "relative", borderRadius: 24,
-              backgroundImage: "url('/images/cover.webp')", backgroundSize: "cover", backgroundPosition: "center top",
-              WebkitMaskImage: "radial-gradient(ellipse 85% 85% at 50% 50%, black 40%, transparent 100%)",
-              maskImage: "radial-gradient(ellipse 85% 85% at 50% 50%, black 40%, transparent 100%)" }}>
-              <div style={{ position: "absolute", inset: 0, background: "rgba(253,246,248,0.82)" }} />
+            <div style={{ width: "100%", marginBottom: 28, position: "relative", borderRadius: 24, overflow: "hidden",
+              backgroundImage: "url('/images/cover.webp')", backgroundSize: "cover", backgroundPosition: "center top" }}>
+              <div style={{ position: "absolute", inset: 0, background: "rgba(253,246,248,0.82)", borderRadius: 24 }} />
               <div style={{ position: "relative", display: "flex", flexDirection: "column", padding: "28px 20px 28px" }}>
                 <div style={{ textAlign: "center", marginBottom: 24 }}>
                   <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, marginBottom: 8 }}>
