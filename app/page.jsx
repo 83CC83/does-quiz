@@ -267,23 +267,21 @@ export default function DOESQuiz() {
 
         {/* ── INTRO ── */}
         {step === "intro" && (
-          <div style={{ animation: "fadeUp 0.6s ease-out", paddingTop: 56 }}>
-            {/* decorative top line */}
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
-              <div style={{ flex: 1, height: 1, background: "linear-gradient(90deg, transparent, #f0b0c0)" }} />
-              <span style={{ fontSize: 10, letterSpacing: 4, color: "#c898a8", fontFamily: "Noto Sans TC, sans-serif" }}>DOES</span>
-              <div style={{ flex: 1, height: 1, background: "linear-gradient(90deg, #f0b0c0, transparent)" }} />
-            </div>
-
-            <div style={{ textAlign: "center", marginBottom: 32, position: "relative" }}>
-              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, marginBottom: 8 }}>
-                <span className="star1" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
-                <span className="star2" style={{ fontSize: 7, color: "#f0a8b8" }}>✦</span>
-                <span className="star3" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
+          <div style={{ animation: "fadeUp 0.6s ease-out", paddingTop: 0 }}>
+            {/* cover image */}
+            <div style={{ width: "calc(100% + 32px)", marginLeft: -16, marginBottom: 28, borderRadius: "0 0 24px 24px", overflow: "hidden", position: "relative" }}>
+              <img src="/images/cover.webp" alt="cover" style={{ width: "100%", height: 220, objectFit: "cover", objectPosition: "center", display: "block" }} />
+              <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "50%", background: "linear-gradient(transparent, #fdf6f8)" }} />
+              <div style={{ position: "absolute", bottom: 20, left: 0, right: 0, textAlign: "center" }}>
+                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, marginBottom: 6 }}>
+                  <span className="star1" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
+                  <span className="star2" style={{ fontSize: 7, color: "#f0a8b8" }}>✦</span>
+                  <span className="star3" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
+                </div>
+                <h1 style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: 28, color: "#3d2e3a", lineHeight: 1.3, margin: 0, fontWeight: 400 }}>
+                  測你的高敏感角色
+                </h1>
               </div>
-              <h1 style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: 30, color: "#3d2e3a", lineHeight: 1.3, margin: 0, fontWeight: 400 }}>
-                測你的高敏感角色
-              </h1>
             </div>
 
             {/* sketch card */}
