@@ -279,7 +279,7 @@ export default function DOESQuiz() {
               {/* decorative top line */}
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
                 <div style={{ flex: 1, height: 1, background: "linear-gradient(90deg, transparent, #f0b0c0)" }} />
-                <span style={{ fontSize: 10, letterSpacing: 4, color: "#c898a8", fontFamily: "Noto Sans TC, sans-serif" }}>DOES</span>
+                <span style={{ fontSize: 10, letterSpacing: 4, color: "#b07888", fontFamily: "Noto Sans TC, sans-serif" }}>DOES</span>
                 <div style={{ flex: 1, height: 1, background: "linear-gradient(90deg, #f0b0c0, transparent)" }} />
               </div>
 
@@ -320,7 +320,7 @@ export default function DOESQuiz() {
               }}>
                 開始測驗 ✦
               </button>
-              <p style={{ textAlign: "center", marginTop: 14, fontSize: 11, color: "#d4a8b4", fontFamily: "Noto Sans TC, sans-serif" }}>25 題 · 約 5 分鐘 · 不需要登入</p>
+              <p style={{ textAlign: "center", marginTop: 14, fontSize: 11, color: "#b07888", fontFamily: "Noto Sans TC, sans-serif" }}>25 題 · 約 5 分鐘 · 不需要登入</p>
             </div>
           </div>
         )}
