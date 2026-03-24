@@ -268,10 +268,10 @@ export default function DOESQuiz() {
         {/* ── INTRO ── */}
         {step === "intro" && (
           <div style={{ animation: "fadeUp 0.6s ease-out" }}>
-            {/* 封面：圖片滿版，所有內容疊在上面 */}
-            <div style={{ position: "relative", width: "calc(100% + 32px)", marginLeft: -16, marginRight: -16, marginBottom: 24 }}>
-              <img src="/images/cover.webp" alt="" style={{ width: "100%", height: "auto", display: "block" }} />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(253,246,248,0.3) 0%, rgba(253,246,248,0.7) 60%, rgba(253,246,248,0.95) 100%)" }} />
+            {/* 封面：圖片固定高度，圓角，文字疊在上面 */}
+            <div style={{ position: "relative", width: "100%", height: 580, borderRadius: 20, overflow: "hidden", marginBottom: 24 }}>
+              <img src="/images/cover.webp" alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(253,246,248,0.2) 0%, rgba(253,246,248,0.6) 55%, rgba(253,246,248,0.95) 100%)" }} />
               <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 20px 28px" }}>
                 <div style={{ textAlign: "center", marginBottom: 20 }}>
                   <div style={{ display: "flex", justifyContent: "center", gap: 8, marginBottom: 8 }}>
