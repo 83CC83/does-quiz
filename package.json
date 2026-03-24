@@ -1,5 +1,5 @@
 {
-  "name": "self-mirror",
+  "name": "does-quiz",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "14.2.3",
+    "next": "^16.2.1",
     "react": "^18",
     "react-dom": "^18"
   }

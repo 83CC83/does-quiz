@@ -267,22 +267,24 @@ export default function DOESQuiz() {
 
         {/* ── INTRO ── */}
         {step === "intro" && (
-          <div style={{ animation: "fadeUp 0.6s ease-out", paddingTop: 16 }}>
-            {/* cover image with all content overlaid */}
-            <div style={{ width: "100%", marginBottom: 0, position: "relative", borderRadius: 24, overflow: "hidden" }}>
-              <img src="/images/cover.webp" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
-              <div style={{ position: "absolute", inset: 0, background: "rgba(253,246,248,0.82)" }} />
-              <div style={{ position: "relative", display: "flex", flexDirection: "column", padding: "28px 20px" }}>
-                <div style={{ textAlign: "center", marginBottom: 24 }}>
-                  <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, marginBottom: 8 }}>
-                    <span className="star1" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
-                    <span className="star2" style={{ fontSize: 7, color: "#f0a8b8" }}>✦</span>
-                    <span className="star3" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
-                  </div>
-                  <h1 style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: 30, color: "#3d2e3a", lineHeight: 1.3, margin: 0, fontWeight: 400 }}>
-                    測你的高敏感角色
-                  </h1>
+          <div style={{ animation: "fadeUp 0.6s ease-out", paddingTop: 0, marginLeft: -16, marginRight: -16 }}>
+            {/* cover image fullbleed */}
+            <div style={{ width: "100%", marginBottom: 0, position: "relative" }}>
+              <img src="/images/cover.webp" alt="" style={{ width: "100%", height: "50vw", maxHeight: 320, objectFit: "cover", objectPosition: "center top", display: "block" }} />
+              <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "60%", background: "linear-gradient(transparent, #fdf6f8)" }} />
+              <div style={{ position: "absolute", bottom: 24, left: 0, right: 0, textAlign: "center" }}>
+                <div style={{ display: "flex", justifyContent: "center", gap: 8, marginBottom: 6 }}>
+                  <span className="star1" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
+                  <span className="star2" style={{ fontSize: 7, color: "#f0a8b8" }}>✦</span>
+                  <span className="star3" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
                 </div>
+                <h1 style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: "clamp(24px, 7vw, 32px)", color: "#3d2e3a", lineHeight: 1.3, margin: 0, fontWeight: 400 }}>
+                  測你的高敏感角色
+                </h1>
+              </div>
+            </div>
+            <div style={{ padding: "0 16px" }}>
+              <div style={{ display: "flex", flexDirection: "column" }}>
 
                 {/* sketch card */}
                 <div className="sketch-box" style={{ padding: "18px 20px", marginBottom: 16, background: "rgba(255,250,252,0.93)" }}>
