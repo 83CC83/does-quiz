@@ -275,7 +275,7 @@ export default function DOESQuiz() {
             </div>
 
             {/* 原本的內容，完全不動 */}
-            <div style={{ position: "relative", zIndex: 1, paddingBottom: 28 }}>
+            <div style={{ position: "relative", zIndex: 1, padding: "0 16px 28px" }}>
               {/* decorative top line */}
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
                 <div style={{ flex: 1, height: 1, background: "linear-gradient(90deg, transparent, #f0b0c0)" }} />
