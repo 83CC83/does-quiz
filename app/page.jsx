@@ -346,15 +346,15 @@ export default function DOESQuiz() {
               </div>
             )}
 
-            <h2 style={{ fontSize: 16, color: "#3d2e3a", lineHeight: 1.85, margin: "0 0 24px", fontWeight: 500, fontFamily: "Noto Sans TC, sans-serif" }}>{q.scenario}</h2>
+            <h2 style={{ fontSize: "clamp(14px, 4vw, 16px)", color: "#3d2e3a", lineHeight: 1.85, margin: "0 0 24px", fontWeight: 500, fontFamily: "Noto Sans TC, sans-serif" }}>{q.scenario}</h2>
 
             <div key={q.id} style={{ display: "flex", flexDirection: "column", gap: 9 }}>
               {q.options.map((opt, i) => (
                 <button key={`${q.id}-${i}`} className="opt" onClick={() => handleAnswer(opt.value)} style={{
-                  padding: "13px 18px",
+                  padding: "12px 16px",
                   background: currentSelection === opt.value ? "#fce8ee" : "#fff",
                   border: `1.5px solid ${currentSelection === opt.value ? "#d06878" : "#e8d8dc"}`,
-                  borderRadius: 12, textAlign: "left", fontSize: 13.5,
+                  borderRadius: 12, textAlign: "left", fontSize: "clamp(12px, 3.5vw, 13.5px)",
                   color: currentSelection === opt.value ? "#a03050" : "#7a5a64",
                   lineHeight: 1.7, fontFamily: "Noto Sans TC, sans-serif", cursor: "pointer",
                 }}>{opt.label}</button>
