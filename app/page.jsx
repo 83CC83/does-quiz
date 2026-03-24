@@ -241,20 +241,20 @@ export default function DOESQuiz() {
         .star3 { animation: twinkle 3.2s ease-in-out infinite 1s; }
         .sketch-box {
           position: relative;
-          border-radius: 28px;
+          border-radius: 18px;
           background: #fffdf8;
         }
         .sketch-box::before {
           content: '';
           position: absolute; inset: 0;
-          border-radius: 28px;
+          border-radius: 18px;
           border: 1.5px solid #ddd0b8;
           pointer-events: none;
         }
         .sketch-box::after {
           content: '';
           position: absolute; inset: 4px;
-          border-radius: 22px;
+          border-radius: 14px;
           border: 1px dashed #ece0cc;
           pointer-events: none;
           opacity: 0.55;
@@ -267,11 +267,11 @@ export default function DOESQuiz() {
 
         {/* ── INTRO ── */}
         {step === "intro" && (
-          <div style={{ animation: "fadeUp 0.6s ease-out" }}>
+          <div style={{ animation: "fadeUp 0.6s ease-out", marginTop: -16 }}>
             {/* 封面：圖片固定高度，圓角，文字疊在上面 */}
             <div style={{ position: "relative", width: "100%", height: "clamp(580px, 90vh, 800px)", borderRadius: 20, overflow: "hidden", marginBottom: 24 }}>
               <img src="/images/cover.webp" alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(253,246,248,0.05) 0%, rgba(253,246,248,0.4) 50%, rgba(253,246,248,0.92) 100%)" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(253,246,248,0.0) 0%, rgba(253,246,248,0.25) 45%, rgba(253,246,248,0.88) 100%)" }} />
               <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "32px 20px 28px" }}>
                 <div style={{ textAlign: "center", marginBottom: 24 }}>
                   <div style={{ display: "flex", justifyContent: "center", gap: 8, marginBottom: 8 }}>
