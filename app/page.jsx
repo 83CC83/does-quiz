@@ -241,20 +241,20 @@ export default function DOESQuiz() {
         .star3 { animation: twinkle 3.2s ease-in-out infinite 1s; }
         .sketch-box {
           position: relative;
-          border-radius: 18px;
+          border-radius: 28px;
           background: #fffdf8;
         }
         .sketch-box::before {
           content: '';
           position: absolute; inset: 0;
-          border-radius: 18px;
+          border-radius: 28px;
           border: 1.5px solid #ddd0b8;
           pointer-events: none;
         }
         .sketch-box::after {
           content: '';
           position: absolute; inset: 4px;
-          border-radius: 14px;
+          border-radius: 22px;
           border: 1px dashed #ece0cc;
           pointer-events: none;
           opacity: 0.55;
@@ -269,11 +269,11 @@ export default function DOESQuiz() {
         {step === "intro" && (
           <div style={{ animation: "fadeUp 0.6s ease-out" }}>
             {/* 封面：圖片固定高度，圓角，文字疊在上面 */}
-            <div style={{ position: "relative", width: "100%", height: 580, borderRadius: 20, overflow: "hidden", marginBottom: 24 }}>
+            <div style={{ position: "relative", width: "100%", height: "clamp(580px, 90vh, 800px)", borderRadius: 20, overflow: "hidden", marginBottom: 24 }}>
               <img src="/images/cover.webp" alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(253,246,248,0.2) 0%, rgba(253,246,248,0.6) 55%, rgba(253,246,248,0.95) 100%)" }} />
-              <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 20px 28px" }}>
-                <div style={{ textAlign: "center", marginBottom: 20 }}>
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(253,246,248,0.05) 0%, rgba(253,246,248,0.4) 50%, rgba(253,246,248,0.92) 100%)" }} />
+              <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "32px 20px 28px" }}>
+                <div style={{ textAlign: "center", marginBottom: 24 }}>
                   <div style={{ display: "flex", justifyContent: "center", gap: 8, marginBottom: 8 }}>
                     <span className="star1" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
                     <span className="star2" style={{ fontSize: 7, color: "#f0a8b8" }}>✦</span>
