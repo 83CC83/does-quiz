@@ -271,7 +271,7 @@ export default function DOESQuiz() {
             {/* 背景圖片 */}
             <div style={{ position: "absolute", inset: 0, borderRadius: 20, overflow: "hidden", zIndex: 0 }}>
               <img src="/images/cover.webp" alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
-              <div style={{ position: "absolute", inset: 0, background: "rgba(253,246,248,0.82)" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, #fdf6f8 0%, rgba(253,246,248,0.75) 15%, rgba(253,246,248,0.75) 85%, #fdf6f8 100%)" }} />
             </div>
 
             {/* 原本的內容，完全不動 */}
