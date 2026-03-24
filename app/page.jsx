@@ -267,32 +267,31 @@ export default function DOESQuiz() {
 
         {/* ── INTRO ── */}
         {step === "intro" && (
-          <div style={{ animation: "fadeUp 0.6s ease-out", marginTop: -16 }}>
-            {/* 封面：圖片固定高度，圓角，文字疊在上面 */}
-            <div style={{ position: "relative", width: "100%", height: "clamp(580px, 90vh, 800px)", borderRadius: 20, overflow: "hidden", marginBottom: 24 }}>
-              <img src="/images/cover.webp" alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(253,246,248,0.0) 0%, rgba(253,246,248,0.25) 45%, rgba(253,246,248,0.88) 100%)" }} />
-              <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "32px 20px 28px" }}>
-                <div style={{ textAlign: "center", marginBottom: 24 }}>
-                  <div style={{ display: "flex", justifyContent: "center", gap: 8, marginBottom: 8 }}>
+          <div style={{ animation: "fadeUp 0.6s ease-out", paddingTop: 0 }}>
+            {/* 封面：圖片鋪底，文字全部疊在上面 */}
+            <div style={{ position: "relative", width: "calc(100% + 32px)", marginLeft: -16, borderRadius: 20, overflow: "hidden", marginBottom: 0 }}>
+              <img src="/images/cover.webp" alt="" style={{ width: "100%", height: "auto", display: "block" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(253,246,248,0.1) 0%, rgba(253,246,248,0.5) 50%, rgba(253,246,248,0.96) 100%)" }} />
+              <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "20px 20px 28px" }}>
+                <div style={{ textAlign: "center", marginBottom: 20 }}>
+                  <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 10, marginBottom: 8 }}>
                     <span className="star1" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
                     <span className="star2" style={{ fontSize: 7, color: "#f0a8b8" }}>✦</span>
                     <span className="star3" style={{ fontSize: 10, color: "#e890a0" }}>✦</span>
                   </div>
-                  <h1 style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: "clamp(24px, 7vw, 32px)", color: "#3d2e3a", lineHeight: 1.3, margin: 0, fontWeight: 400 }}>
+                  <h1 style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: 30, color: "#3d2e3a", lineHeight: 1.3, margin: 0, fontWeight: 400 }}>
                     測你的高敏感角色
                   </h1>
                 </div>
-                {/* sketch card */}
-                <div className="sketch-box" style={{ padding: "18px 20px", marginBottom: 12, background: "rgba(255,250,252,0.92)" }}>
-                  <p style={{ fontSize: 10, letterSpacing: 1, color: "#c898a8", margin: "0 0 8px", fontFamily: "Noto Sans TC, sans-serif" }}>什麼是高敏感人格？</p>
+                <div className="sketch-box" style={{ padding: "18px 20px", marginBottom: 12, background: "rgba(255,250,252,0.93)" }}>
+                  <p style={{ fontSize: 10, letterSpacing: 1, color: "#c898a8", margin: "0 0 10px", fontFamily: "Noto Sans TC, sans-serif" }}>什麼是高敏感人格？</p>
                   <p style={{ fontSize: "clamp(12px, 3.5vw, 13.5px)", color: "#7a5a64", lineHeight: 1.9, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>
                     高敏感人格（HSP）不是病，也不是你想太多。大約 15-20% 的人天生對外在刺激和內在情緒感知得更深，心理學家 Elaine Aron 把這個特質整理成四個面向，縮寫為 <span style={{whiteSpace: "nowrap"}}><strong style={{color: "#cc6878"}}>DOES</strong></span>。
                   </p>
                 </div>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 16 }}>
                   {[["D","深度處理","Depth of Processing"],["O","過度刺激","Overstimulation"],["E","情緒同理","Emotional Reactivity"],["S","感官敏感","Sensory Sensitivity"]].map(([k,zh,en]) => (
-                    <div key={k} className="sketch-box" style={{ padding: "12px 14px", background: "rgba(255,250,252,0.92)" }}>
+                    <div key={k} className="sketch-box" style={{ padding: "12px 14px", background: "rgba(255,250,252,0.93)" }}>
                       <p style={{ fontSize: 22, fontFamily: "LXGW WenKai TC, serif", color: "#cc6878", margin: "0 0 4px", letterSpacing: 1 }}>{k}</p>
                       <p style={{ fontSize: 12, color: "#6a4a55", margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>{zh}</p>
                       <p style={{ fontSize: 10, color: "#c898a8", margin: "3px 0 0", fontFamily: "Noto Sans TC, sans-serif" }}>{en}</p>
