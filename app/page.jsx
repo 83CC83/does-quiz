@@ -433,9 +433,11 @@ export default function DOESQuiz() {
                     </>
                   ) : (
                     /* 第二、三個：左圖右文卡片式 */
+                    <div>
+                    <p style={{ fontSize: 10, letterSpacing: 2, color: "#c898a8", margin: "0 0 8px", fontFamily: "Noto Sans TC, sans-serif" }}>也有這一面</p>
                     <div className="sketch-box" style={{ display: "flex", gap: 14, padding: 0, overflow: "hidden", marginBottom: 0 }}>
                       <img src={IMAGES[animal.key]} alt={animal.name}
-                        style={{ width: 110, height: 130, objectFit: "cover", objectPosition: "center 15%", display: "block", mixBlendMode: "multiply", flexShrink: 0 }} />
+                        style={{ width: 110, height: 130, objectFit: "cover", objectPosition: "center 15%", display: "block", mixBlendMode: "multiply", flexShrink: 0, borderRadius: "16px 0 0 16px" }} />
                       <div style={{ padding: "14px 14px 14px 0", display: "flex", flexDirection: "column", justifyContent: "center" }}>
                         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
                           <div style={{ width: 18, height: 2, background: color, borderRadius: 1 }} />
@@ -444,6 +446,7 @@ export default function DOESQuiz() {
                         <p style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: 26, color: "#3d2e3a", margin: "0 0 8px", fontWeight: 400, lineHeight: 1 }}>{animal.name}</p>
                         <p style={{ fontSize: 12, color: "#7a5a64", lineHeight: 1.8, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>{animal.desc}</p>
                       </div>
+                    </div>
                     </div>
                   )}
                 </div>
