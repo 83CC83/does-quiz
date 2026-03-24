@@ -404,25 +404,24 @@ export default function DOESQuiz() {
 
             {result.animals.map((animal, idx) => {
               const color = ANIMAL_COLORS[animal.key];
+              const isFirst = idx === 0;
               return (
                 <div key={idx} style={{ marginBottom: 24 }}>
-                  {/* Full-width image banner */}
+                  {/* Full-width image banner - 第一個大，其他小 */}
                   <div style={{
                     width: "calc(100% + 32px)", marginLeft: -16,
                     borderRadius: "0 0 32px 32px", overflow: "hidden",
                     position: "relative", marginBottom: 0,
                   }}>
                     <img className="result-img" src={IMAGES[animal.key]} alt={animal.name}
-                      style={{ width: "100%", height: "auto", maxHeight: 420, objectFit: "cover", objectPosition: "center center", display: "block", mixBlendMode: "multiply" }} />
-                    {/* gradient fade */}
+                      style={{ width: "100%", height: isFirst ? "auto" : 200, objectFit: "cover", objectPosition: "center 20%", display: "block", mixBlendMode: "multiply" }} />
                     <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "45%", background: "linear-gradient(transparent, #faf6ef)" }} />
-                    {/* decorative corner dots */}
                     <div style={{ position: "absolute", top: 14, left: 14, display: "flex", gap: 6, alignItems: "center" }}>
-                    <span style={{ fontSize: 9, color: "rgba(255,255,255,0.55)", letterSpacing: 4, fontFamily: "Noto Sans TC, sans-serif" }}>✦ DOES ✦</span>
-                  </div>
-                  <div style={{ position: "absolute", top: 14, right: 14 }}>
-                    <span style={{ fontSize: 9, color: "rgba(255,255,255,0.4)" }}>✦</span>
-                  </div>
+                      <span style={{ fontSize: 9, color: "rgba(255,255,255,0.55)", letterSpacing: 4, fontFamily: "Noto Sans TC, sans-serif" }}>✦ DOES ✦</span>
+                    </div>
+                    <div style={{ position: "absolute", top: 14, right: 14 }}>
+                      <span style={{ fontSize: 9, color: "rgba(255,255,255,0.4)" }}>✦</span>
+                    </div>
                   </div>
 
                   {/* Name block */}
@@ -431,8 +430,8 @@ export default function DOESQuiz() {
                       <div style={{ width: 28, height: 2, background: color, borderRadius: 1 }} />
                       <p style={{ fontSize: 10, letterSpacing: 3, color: color, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>{animal.trait}</p>
                     </div>
-                    <h1 style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: 0, color: "#3d2e3a", margin: "0 0 16px", fontWeight: 400, lineHeight: 1 }}><span style={{fontSize: 44, fontFamily: "LXGW WenKai TC, serif"}}>{animal.name}</span></h1>
-                    <p style={{ fontSize: 14, color: "#7a5a64", lineHeight: 1.95, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>{animal.desc}</p>
+                    <h1 style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: 0, color: "#3d2e3a", margin: "0 0 16px", fontWeight: 400, lineHeight: 1 }}><span style={{fontSize: isFirst ? 44 : 32, fontFamily: "LXGW WenKai TC, serif"}}>{animal.name}</span></h1>
+                    <p style={{ fontSize: isFirst ? 14 : 13, color: "#7a5a64", lineHeight: 1.95, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>{animal.desc}</p>
                   </div>
                 </div>
               );
