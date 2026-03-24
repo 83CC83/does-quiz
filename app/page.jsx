@@ -92,16 +92,16 @@ const QUESTIONS = [
 ];
 
 const ANIMALS = {
-  whale:     { key: "whale",     name: "藍鯨",  trait: "深淵者",   desc: "你在深海獨自思考世界，旁人看起來你很安靜，但你的內心一直在運轉，分析、連結、沉澱，你不需要很多刺激，但你需要足夠的深度。" },
-  hedgehog:  { key: "hedgehog",  name: "水獺",  trait: "界線者",   desc: "你有自己的節奏，也知道怎麼保護它，環境太吵、太滿的時候，你會找到一個安靜的角落恢復自己，這種對自身狀態的敏感度，讓你比多數人更懂得照顧自己。" },
-  elephant:  { key: "elephant",  name: "大象",  trait: "記憶者",   desc: "你記得每一種情緒的重量，別人的喜悅和悲傷你都感受得到，有時甚至比對方本人更深刻，這種深度的情感連結，讓你成為很多人願意靠近的存在。" },
-  deer:      { key: "deer",      name: "貓頭鷹",  trait: "感知者",   desc: "你的感官一直都是開著的，細微的光線變化、空氣裡的氣味、背景裡的聲音，這些對你來說都是真實存在的訊息，讓你對美的事物有極深的感受力，也讓你走進某些空間的瞬間就知道那裡對不對。" },
-  bee:       { key: "bee",       name: "蜜蜂",  trait: "織網者", desc: "你是感知全開的存在，深度思考、容易過載、情感豐富、感官細膩，四個面向你都有，世界對你來說既豐富又疲憊，但你比任何人都活得更完整。" },
-  dolphin:   { key: "dolphin",   name: "海豚",  trait: "探索者",   desc: "你又敏感又充滿活力，喜歡深度思考，但也需要新的刺激和冒險，在變化中找到意義，在探索中找到自己。" },
-  fox:       { key: "fox",       name: "狐狸",  trait: "遊蕩者",       desc: "你同時住著兩種衝動，一個說太吵了我要走，一個說好無聊我要出去，容易被環境耗損，但悶著更難受，總是在剛好太多和剛好不夠之間來回，找不到完美的位置，但你已經學會在移動中找到平衡。" },
-  butterfly: { key: "butterfly", name: "蝴蝶",  trait: "共鳴者",   desc: "你帶著開放的心感受世界，對人的情緒極度敏感，同時又渴望不同的體驗和相遇，每一次新的接觸都讓你的內心世界更豐富。" },
-  cheetah:   { key: "cheetah",   name: "獵豹",  trait: "疾行者",   desc: "你的感官和行動力同樣強大，能察覺到最細微的變化，同時也有強烈的衝動去體驗、去移動、去嘗試，活在當下，全力以赴。" },
-  eagle:     { key: "eagle",     name: "老鷹",  trait: "全觀者", desc: "你是感知全開又充滿衝勁的存在，敏銳的感官、豐富的情感、深度的思考，加上對新刺激的渴望，你同時承載著最大的敏感和最強的驅動力。" },
+  whale:     { key: "whale",     name: "藍鯨",  trait: "深思者",   desc: "你是深度處理型的高敏感，在深海獨自思考世界，旁人看起來你很安靜，但你的內心一直在運轉，分析、連結、沉澱，你不需要很多刺激，但你需要足夠的深度。" },
+  hedgehog:  { key: "hedgehog",  name: "水獺",  trait: "界線者",   desc: "你是容易過載型的高敏感，有自己的節奏，也知道怎麼保護它，環境太吵、太滿的時候，你會找到一個安靜的角落恢復自己，這種對自身狀態的敏感度，讓你比多數人更懂得照顧自己。" },
+  elephant:  { key: "elephant",  name: "大象",  trait: "共情者",   desc: "你是情緒同理型的高敏感，記得每一種情緒的重量，別人的喜悅和悲傷你都感受得到，有時甚至比對方本人更深刻，這種深度的情感連結，讓你成為很多人願意靠近的存在。" },
+  deer:      { key: "deer",      name: "貓頭鷹",  trait: "感知者",   desc: "你是感官敏感型的高敏感，感官一直都是開著的，細微的光線變化、空氣裡的氣味、背景裡的聲音，這些對你來說都是真實存在的訊息，讓你對美的事物有極深的感受力，也讓你走進某些空間的瞬間就知道那裡對不對。" },
+  bee:       { key: "bee",       name: "蜜蜂",  trait: "全維者", desc: "你是全面型的高敏感，深度思考、容易過載、情感豐富、感官細膩，四個面向你都有，世界對你來說既豐富又疲憊，但你比任何人都活得更完整。" },
+  dolphin:   { key: "dolphin",   name: "海豚",  trait: "探索者",   desc: "你是既敏感又停不下來的高敏感，喜歡深度思考，但也需要新的刺激和冒險，在變化中找到意義，在探索中找到自己。" },
+  fox:       { key: "fox",       name: "狐狸",  trait: "游移者",       desc: "你是容易耗損又悶不住的高敏感，同時住著兩種衝動，一個說太吵了我要走，一個說好無聊我要出去，總是在剛好太多和剛好不夠之間來回，但你已經學會在移動中找到平衡。" },
+  butterfly: { key: "butterfly", name: "蝴蝶",  trait: "共鳴者",   desc: "你是情感共鳴又渴望體驗的高敏感，帶著開放的心感受世界，對人的情緒極度敏感，同時又渴望不同的體驗和相遇，每一次新的接觸都讓你的內心世界更豐富。" },
+  cheetah:   { key: "cheetah",   name: "獵豹",  trait: "行動者",   desc: "你是感官敏銳又充滿行動力的高敏感，感官和行動力同樣強大，能察覺到最細微的變化，同時也有強烈的衝動去體驗、去移動、去嘗試，活在當下，全力以赴。" },
+  eagle:     { key: "eagle",     name: "老鷹",  trait: "全感者", desc: "你是全面高敏感又充滿衝勁的人，敏銳的感官、豐富的情感、深度的思考，加上對新刺激的渴望，你同時承載著最大的敏感和最強的驅動力。" },
   stone:     { key: "stone",     name: "隱者",  trait: "靜定者",   desc: "外面的世界吵不吵，你的內在節奏都不太會被打亂，你有一種天生的穩定感，能在各種環境裡保持自己的狀態，這在這個時代是很難得的能力。" },
 };
 
@@ -430,7 +430,6 @@ export default function DOESQuiz() {
                     <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
                       <div style={{ width: 28, height: 2, background: color, borderRadius: 1 }} />
                       <p style={{ fontSize: 10, letterSpacing: 3, color: color, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>{animal.trait}</p>
-                      <span style={{ fontSize: 9, color: "#fff", background: animal.key === "stone" ? "#b0a0a8" : color, borderRadius: 20, padding: "2px 8px", letterSpacing: 1, fontFamily: "Noto Sans TC, sans-serif", opacity: 0.85 }}>{animal.key === "stone" ? "非高敏感" : "高敏感"}</span>
                     </div>
                     <h1 style={{ fontFamily: "LXGW WenKai TC, serif", fontSize: 0, color: "#3d2e3a", margin: "0 0 16px", fontWeight: 400, lineHeight: 1 }}><span style={{fontSize: 44, fontFamily: "LXGW WenKai TC, serif"}}>{animal.name}</span></h1>
                     <p style={{ fontSize: 14, color: "#7a5a64", lineHeight: 1.95, margin: 0, fontFamily: "Noto Sans TC, sans-serif" }}>{animal.desc}</p>
