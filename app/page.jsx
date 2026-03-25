@@ -200,17 +200,18 @@ export default function DOESQuiz() {
     const scores = calcScores(final);
     setResult({ scores, animals: getAnimals(scores) });
     setStep("result");
+    setTimeout(() => window.scrollTo({ top: 0, behavior: "instant" }), 0);
   };
 
   const handleBack = () => {
-    if (currentQ === 0) { setStep("intro"); return; }
+    if (currentQ === 0) { setStep("intro"); setTimeout(() => window.scrollTo({ top: 0, behavior: "instant" }), 0); return; }
     const prevIdx = currentQ - 1;
     const prevQid = QUESTIONS[prevIdx]?.id;
     setCurrentQ(prevIdx);
     setCurrentSelection(answers[prevQid] ?? null);
   };
 
-  const reset = () => { setStep("intro"); setAnswers({}); setCurrentQ(0); setResult(null); setPending(null); setCurrentSelection(null); };
+  const reset = () => { setStep("intro"); setTimeout(() => window.scrollTo({ top: 0, behavior: "instant" }), 0); setAnswers({}); setCurrentQ(0); setResult(null); setPending(null); setCurrentSelection(null); };
 
   // Preload all images on mount
   useEffect(() => {
@@ -311,7 +312,7 @@ export default function DOESQuiz() {
                 ))}
               </div>
 
-              <button className="cta-btn" onClick={() => setTimeout(() => setStep("quiz"), 50)} style={{
+              <button className="cta-btn" onClick={() => { setTimeout(() => { setStep("quiz"); window.scrollTo({ top: 0, behavior: "instant" }); }, 50); }} style={{
                 width: "100%", padding: "15px",
                 background: "linear-gradient(135deg, #e07888, #f0a0a8)", border: "none", borderRadius: 50,
                 color: "#fff5f5", fontSize: 14, fontWeight: 700,
