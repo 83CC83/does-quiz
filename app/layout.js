@@ -7,14 +7,14 @@ export const metadata = {
     description: "25 題測出你是哪種高敏感動物角色，看你的感知輪廓。",
     url: "https://www.does-quiz.com",
     siteName: "DOES 高敏感人格測驗",
-    images: [
-      {
-        // url: "/images/cover.webp",
-        width: 1200,
-        height: 630,
-        alt: "DOES 高敏感人格測驗",
-      },
-    ],
+    // images: [
+    //   {
+    //     url: "/images/cover.webp",
+    //     width: 1200,
+    //     height: 630,
+    //     alt: "DOES 高敏感人格測驗",
+    //   },
+    // ],
     locale: "zh_TW",
     type: "website",
   },
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "測你的高敏感角色 | DOES",
     description: "25 題測出你是哪種高敏感動物角色，看你的感知輪廓。",
-    images: ["/images/cover.webp"],
+    // images: ["/images/cover.webp"],
   },
   robots: {
     index: true,
