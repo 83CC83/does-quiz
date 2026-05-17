@@ -9,7 +9,7 @@ export const metadata = {
     siteName: "DOES 高敏感人格測驗",
     images: [
       {
-        url: "/images/cover.webp",
+        // url: "/images/cover.webp",
         width: 1200,
         height: 630,
         alt: "DOES 高敏感人格測驗",
