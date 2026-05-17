@@ -270,12 +270,11 @@ export default function DOESQuiz() {
         {step === "intro" && (
           <div style={{ animation: "fadeUp 0.6s ease-out", paddingTop: 56, position: "relative" }}>
             {/* 背景圖片 */}
-            <div style={{ position: "absolute", inset: 0, borderRadius: 20, overflow: "hidden", zIndex: 0 }}>
+            {/* <div style={{ position: "absolute", inset: 0, borderRadius: 20, overflow: "hidden", zIndex: 0 }}>
               <img src="/images/cover.webp" alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, #fdf6f8 0%, rgba(253,246,248,0.75) 15%, rgba(253,246,248,0.75) 85%, #fdf6f8 100%)" }} />
-            </div>
+            </div> */}
 
-            {/* 原本的內容，完全不動 */}
             <div style={{ position: "relative", zIndex: 1, padding: "0 16px 28px" }}>
               {/* decorative top line */}
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
